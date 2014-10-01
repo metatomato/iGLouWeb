@@ -4,7 +4,7 @@ import random
 
 
 REPO_URL = 'https://github.com/metatomato/iGLouWeb.git'
-SERVER_REPO = 'SITES'
+SERVER_REPO = 'SITES/tomato-studio.ddns.net'
 DJANGO_PROJECT = 'iGLouWeb'
 
 def deploy():

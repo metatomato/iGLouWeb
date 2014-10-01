@@ -22,9 +22,9 @@ SECRET_KEY = 'buld&vwik@g+jdq8dpz+c2zq(o1#yrvl695&m@r9z@1gzvca*&'
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
-TEMPLATE_DEBUG = True
+TEMPLATE_DEBUG = DEBUG
 
-ALLOWED_HOSTS = []
+ALLOWED_HOSTS = [tomato-studio.ddns.net]
 
 
 # Application definition

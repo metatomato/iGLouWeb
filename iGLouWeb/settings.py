@@ -26,6 +26,10 @@ TEMPLATE_DEBUG = DEBUG
 
 ALLOWED_HOSTS = ['tomato-studio.ddns.net']
 
+#global templates files
+TEMPLATE_DIRS = (
+    os.path.join(BASE_DIR, "templates"),
+)
 
 # Application definition
 
@@ -37,6 +41,7 @@ INSTALLED_APPS = (
     'django.contrib.messages',
     'django.contrib.staticfiles',
     'studio',
+    'navbar',
 )
 
 MIDDLEWARE_CLASSES = (

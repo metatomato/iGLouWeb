@@ -3,6 +3,6 @@ from django.shortcuts import render,HttpResponse
 
 # Create your views here.
 
-def home_view(request):
-    return render(request,'carousel.html')	
+def view_home(request):
+    return render(request,'base.html')	
 

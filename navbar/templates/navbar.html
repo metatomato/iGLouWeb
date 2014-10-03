@@ -17,20 +17,23 @@
             <div class="navbar-header">                
                 <a class="navbar-brand" href="#">STUDIO</a>
             </div>
-                <ul class="nav navbar-nav">
+                <ul class="nav navbar-nav" id="main_menu">
                     <li class="dropdown">
-                    <a href="#" class="dropdown-toggle" data-toggle="dropdown"><span id="navigator">Dropdown</span> <span class="caret"></span></a>
+                    <a href="#" class="dropdown-toggle" data-toggle="dropdown"><span id="navigator">STUDIO</span> <span class="caret"></span></a>
                         <ul class="dropdown-menu" role="menu">
-                            <li><a href="#studio">Studio</a></li>
-                            <li><a href="#unreal">Unreal</a></li>
+                            <li><a href="#studio">STUDIO</a></li>
+                            <li class="divider"></li>
+                            <li><a href="#unreal">UNREAL</a></li>
+                            <li class="divider"></li>
                             <li><a href="#ios">iOS</a></li>
-                            <li><a href="#android">Android</a></li>
+                            <li class="divider"></li>
+                            <li><a href="#android">ANDROID</a></li>
                         </ul>
                       </li>
                     </ul>
                 </ul>
             <ul class="nav navbar-nav navbar-nav-iGLou-inverse pull-right">                
-                <li><a href="#">CONTACT</a></li>
+                <li><a href="#contact">CONTACT</a></li>
             </ul>
           </div>
         </div>
@@ -60,6 +63,9 @@ Sed eget sapien massa. Aliquam varius aliquet lorem, non condimentum eros egesta
 Sed eget sapien massa. Aliquam varius aliquet lorem, non condimentum eros egestas ac. Integer ultricies est sed mauris placerat, vel sollicitudin nunc maximus. Ut vehicula vehicula elit a hendrerit. Donec non erat ut orci feugiat congue. Pellentesque sapien tellus, lobortis a tempor in, convallis at purus. Sed vel felis at eros fringilla imperdiet. Suspendisse mattis auctor urna ac volutpat. Sed et neque nec purus dictum ullamcorper sit amet sed tortor. Pellentesque auctor mauris id lacus dignissim eleifend. Aenean enim erat, porttitor in urna eu, sollicitudin tristique urna. Cras eget sollicitudin purus. Etiam a felis sed arcu pulvinar tincidunt quis a risus.</p>
     </div>
 
+<div id="contact" class="jumbotron">
+        <p>metatomato@iglou-studio.com</p>
+    </div>
 
 
 </body>
@@ -72,19 +78,27 @@ Sed eget sapien massa. Aliquam varius aliquet lorem, non condimentum eros egesta
 <script type="text/javascript">
     $(function () {
         $('li>a').click(function(){
-            var pos = $($(this).attr('href')).offset().top;
-            $('body, html').animate({scrollTop:pos}, 1000);
-        })
+             var pos = $($(this).attr('href')).offset().top;
+             $('body, html').animate({scrollTop:pos}, 1000);
+          })
     });
 
-    $('body').scrollspy({ target: '.navbar' });
+    $('#main_menu').on('activate.bs.scrollspy', function () {
+        var currentItem = $(".dropdown-menu li.active > a").text();
+        $("#navigator").empty().html(currentItem);
+    });
 
-    $('.navbar').on('activate.bs.scrollspy', function () {
-        $('#navigator').text('oYo!')
-    })
 </script>
 
 {% endblock %}
+
+
+
+
+
+
+
+
 
 
 

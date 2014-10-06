@@ -7,33 +7,30 @@
 {% endblock %}
 
 {% block body_html %}
-<body data-spy="scroll" data-offset="0" data-target=".navbar">
+<body data-spy="scroll" data-offset="60" data-target=".navbar">
 
  <div class="navbar-wrapper">
       <div class="container">
 
         <div class="navbar navbar-iGLou navbar-fixed-top" role="navigation">
-          <div class="container">
+          <div class="container">         
 
-            
+<!--
+            <div class="navbar-header">
+                <button type="button" class="navbar-toggle" data-toggle="collapse" 
+                        data-target=".navbar-ex1-collapse">
+                    <span class="sr-only">Toggle navigation</span>
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                </button>
+                <a class="navbar-brand" rel="home" href="#" title="iGLou">
+                    <span class="glyphicon glyphicon-th-list" ></span>                 
+                </a>
+            </div>
 
-        <div class="navbar-header">
-            <button type="button" class="navbar-toggle" data-toggle="collapse" 
-                    data-target=".navbar-ex1-collapse">
-                <span class="sr-only">Toggle navigation</span>
-                <span class="icon-bar"></span>
-                <span class="icon-bar"></span>
-                <span class="icon-bar"></span>
-            </button>
-            <a class="navbar-brand" rel="home" href="#" title="iGLou">
-                <img style="max-width:40px; margin-top: -8px;"
-                     src="/static/img/ico_menu.png">
-            </a>
-        </div>
-
-
-
-            <ul class="nav navbar-nav" id="main_menu">
+            <div class="navbar-collapse collapse">
+            <ul class="nav navbar-nav navbar-left" id="main_menu">
                 <li class="dropdown">
                     <a href="#" class="dropdown-toggle" data-toggle="dropdown">
                         <span id="navigator">STUDIO</span> <span class="caret"></span>
@@ -50,15 +47,99 @@
                   </li>
                 </ul>
             </ul>
-
+            </div>
+            
+            <a class="navbar-brand navbar-brand-iGLou" href="#">
+                <img style="max-height:40px; margin-top:-10px;" src="/static/img/logo_text.png">
+            </a>               
+          
+    
             <ul class="nav navbar-nav navbar-nav-iGLou-inverse pull-right">                
                 <li><a href="#contact">CONTACT</a></li>
             </ul>
+
+-->
+
+              <p class="navbar-logo-iGLou">
+                <img style="max-height:40px; margin-top:5px;" src="/static/img/logo_text.png">
+              </p>
+            
+              <div class="navbar-brand" id="menu-toggle" rel="home" href="#" title="Site Navigation">
+                    <span class="glyphicon glyphicon-th-list" ></span>                 
+              </div>
+
+              <div class="navbar-header">
+                <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-ex1-collapse">
+                  <span class="sr-only">Toggle navigation</span>
+                  <span class="icon-bar"></span>
+                  <span class="icon-bar"></span>
+                  <span class="icon-bar"></span>
+                </button>                   
+              </div>
+             
+              <div class="navbar-collapse collapse">
+                <ul class="nav navbar-nav navbar-left" id="main_menu">
+                    <li class="dropdown">
+                        <a href="#" class="dropdown-toggle" data-toggle="dropdown">
+                            <span id="navigator">STUDIO</span> <span class="caret"></span>
+                        </a>
+                        <ul class="dropdown-menu dropdown-menu-iGLou" role="menu">
+                            <li><a href="#studio">STUDIO</a></li>
+                            <li class="divider"></li>
+                            <li><a href="#unreal">UNREAL</a></li>
+                            <li class="divider"></li>
+                            <li><a href="#ios">iOS</a></li>
+                            <li class="divider"></li>
+                            <li><a href="#android">ANDROID</a></li>
+                            <li class="divider"></li>
+                            <li><a href="#contact">CONTACT</a></li>
+                        </ul>
+                    </li>
+                </ul>
+
+                <ul class="nav navbar-nav navbar-nav-iGLou-inverse navbar-right">
+                  <li><a href="#contact">CONTACT</a></li>
+                </ul>
+
+              </div>
+     
+
+
           </div>
         </div>
 
       </div>
     </div>
+
+
+    <div id="wrapper" class="toggled">
+
+        <!-- Sidebar -->
+        <div id="sidebar-wrapper">
+            <ul class="sidebar-nav">
+                <li class="sidebar-brand">
+                    <a href="#">
+                        STUDIO
+                    </a>
+                </li>
+                <li class="sidebar-brand">
+                    <a href="#">
+                        BLOG
+                    </a>
+                </li>
+                <li class="sidebar-brand">
+                    <a href="#">
+                        FORGES
+                    </a>
+                </li>
+            </ul>
+        </div>
+        <!-- /#sidebar-wrapper -->
+
+        <!-- Page Content -->
+        <div id="page-content-wrapper">
+            <div class="container-fluid">
+
 
     <div id="studio" class="jumbotron">
         <h1>STUDIO</h1>
@@ -90,6 +171,8 @@ Sed eget sapien massa. Aliquam varius aliquet lorem, non condimentum eros egesta
         <p>metatomato@iglou-studio.com</p>
     </div>
 
+</div>
+</div>
 
 </body>
 {% endblock %}
@@ -111,6 +194,29 @@ Sed eget sapien massa. Aliquam varius aliquet lorem, non condimentum eros egesta
         $("#navigator").empty().html(currentItem);
     });
 
+
+    $("#menu-toggle").click(function(e) {
+        e.preventDefault();
+        $("#wrapper").toggleClass("toggled");
+    });
+
+   $( "#menu-toggle" ).hover(
+        function(){
+             $("#wrapper").removeClass("toggled");
+             $("#menu-toggle").css("color","#808080");
+        },
+        function(){}
+    );
+
+    $( "#sidebar-wrapper" ).hover(
+        function(){
+              $("#menu-toggle").css("color","#808080");
+        },
+        function(){
+              $("#wrapper").addClass("toggled");
+              $("#menu-toggle").css("color","#00d8ff");
+        }
+    );
 </script>
 
 {% endblock %}

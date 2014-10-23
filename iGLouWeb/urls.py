@@ -5,6 +5,7 @@ urlpatterns = patterns('',
     # Examples:
      url(r'^$', 'studio.views.view_home', name='home'),
      url(r'^navbar/', include('navbar.urls')),
+     url(r'^news/', include('news.urls')),
 
    # url(r'^admin/', include(admin.site.urls)),
 )

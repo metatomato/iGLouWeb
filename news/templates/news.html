@@ -1,0 +1,83 @@
+{% extends 'base_app.html' %}
+
+{% block title_text %}news{% endblock %}
+
+{% block static_includes %}
+<link href="/static/css/news.css" rel="stylesheet">
+<style type="text/css" id="holderjs-style"></style>
+{% endblock %}
+
+{% block body_html%}
+<!-- Carousel
+    ================================================== -->
+
+    <div id="myCarousel" class="carousel slide" data-ride="carousel">
+      <!-- Indicators -->
+      <ol class="carousel-indicators">
+        <li data-target="#myCarousel" data-slide-to="0" class=""></li>
+        <li class="" data-target="#myCarousel" data-slide-to="1"></li>
+        <li class="active" data-target="#myCarousel" data-slide-to="2"></li>
+      </ol>
+      <div class="carousel-inner">
+        <div class="item">
+           <div class="row featurette">
+        <div class="col-md-5 figure">
+          <img src="/static/img/studio_block_0.png">
+        </div>
+        <div class="col-md-7">
+          <h2 class="featurette-heading">Oh yeah, it's that good. <span class="text-muted">See for yourself.</span></h2>
+          <p class="lead">Donec ullamcorper nulla non metus auctor
+fringilla. Vestibulum id ligula porta felis euismod semper. Praesent
+commodo cursus magna, vel scelerisque nisl consectetur. Fusce dapibus,
+tellus ac cursus commodo.</p>
+        </div>
+      </div>
+        </div>
+        <div class="item active left">
+          <img src="data:image/gif;base64,R0lGODlhAQABAIAAAGZmZgAAACH5BAAAAAAALAAAAAABAAEAAAICRAEAOw==" alt="Second slide">
+          <div class="container">
+            <div class="carousel-caption">
+              <img src="/static/img/studio_block_0.png" class="img-responsive">
+              <h1>Another example headline.</h1>
+              <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Mauris auctor porta sodales.<br/>
+Sed eget sapien massa.</p>
+    </p>
+              <p><a class="btn btn-lg btn-primary" href="#" role="button">Learn more</a></p>
+            </div>
+          </div>
+        </div>
+        <div class="item next left">
+          <img src="data:image/gif;base64,R0lGODlhAQABAIAAAFVVVQAAACH5BAAAAAAALAAAAAABAAEAAAICRAEAOw==" alt="Third slide">
+          <div class="container">
+            <div class="carousel-caption">
+              <h1>One more for good measure.</h1>
+              <p>Cras justo odio, dapibus ac facilisis in, egestas eget
+quam. Donec id elit non mi porta gravida at eget metus. Nullam id dolor
+id nibh ultricies vehicula ut id elit.</p>
+              <p><a class="btn btn-lg btn-primary" href="#" role="button">Browse gallery</a></p>
+            </div>
+          </div>
+        </div>
+      </div>
+      <a class="left carousel-control" href="#myCarousel" role="button" data-slide="prev"><span class="glyphicon glyphicon-chevron-left"></span></a>
+      <a class="right carousel-control" href="#myCarousel" role="button" data-slide="next"><span class="glyphicon glyphicon-chevron-right"></span></a>
+    </div><!-- /.carousel -->
+
+
+        <div class="row featurette">
+        <div class="col-md-7">
+          <h2 class="featurette-heading">First featurette heading. <span class="text-muted">It'll blow your mind.</span></h2>
+          <p class="lead">Donec ullamcorper nulla non metus auctor
+fringilla. Vestibulum id ligula porta felis euismod semper. Praesent
+commodo cursus magna, vel scelerisque nisl consectetur. Fusce dapibus,
+tellus ac cursus commodo.</p>
+        </div>
+        <div class="col-md-5">
+          <img src="data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHdpZHRoPSI1MDAiIGhlaWdodD0iNTAwIj48cmVjdCB3aWR0aD0iNTAwIiBoZWlnaHQ9IjUwMCIgZmlsbD0iI2VlZSIvPjx0ZXh0IHRleHQtYW5jaG9yPSJtaWRkbGUiIHg9IjI1MCIgeT0iMjUwIiBzdHlsZT0iZmlsbDojYWFhO2ZvbnQtd2VpZ2h0OmJvbGQ7Zm9udC1zaXplOjMxcHg7Zm9udC1mYW1pbHk6QXJpYWwsSGVsdmV0aWNhLHNhbnMtc2VyaWY7ZG9taW5hbnQtYmFzZWxpbmU6Y2VudHJhbCI+NTAweDUwMDwvdGV4dD48L3N2Zz4=" class="featurette-image img-responsive" data-src="holder.js/500x500/auto" alt="500x500">
+        </div>
+      </div>
+{% endblock %}
+
+{% block scripts %}
+        <script src="/static/js/docs.js"></script>
+{% endblock %}

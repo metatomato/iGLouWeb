@@ -29,13 +29,7 @@ p, div {
   height: 500px;
   background-color: #ff0000;
 }
-.carousel-inner > .item > img {
-  position: absolute;
-  top: 0;
-  left: 0;
-  min-width: 100%;
-  height: 500px;
-}
+
 
 .carousel .logo {
   background-image: url('../img/studio_block_0.png');

@@ -1,0 +1,44 @@
+<script type="text/javascript">
+    $(function () {
+        $('li>a').click(function(){
+             var pos = $($(this).attr('href')).offset().top;
+             $('body, html').animate({scrollTop:pos}, 500);
+          })
+    });
+
+    $('#main_menu').on('activate.bs.scrollspy', function () {
+        var currentItem = $(".dropdown-menu li.active > a").text();
+        $("#navigator").empty().html(currentItem);
+    });
+
+
+    $("#menu-toggle").click(function(e) {
+        e.preventDefault();
+        $("#wrapper").toggleClass("toggled");
+    });
+
+   $( "#menu-toggle" ).hover(
+        function(){
+             $("#wrapper").removeClass("toggled");
+             $("#menu-toggle").css("color","#808080");
+        },
+        function(){}
+    );
+
+    $( "#sidebar-wrapper" ).hover(
+        function(){
+              $("#menu-toggle").css("color","#808080");
+        },
+        function(){
+              $("#wrapper").addClass("toggled");
+              $("#menu-toggle").css("color","#00d8ff");
+        }
+    );
+
+    $('.navbar-toggle').on('shown.bs.collapse', function() {
+         window.alert('shown');
+    });
+
+    $('.navbar-toggle').on('hidden.bs.collapse', function() { window.alert('hidden'); });
+
+</script>

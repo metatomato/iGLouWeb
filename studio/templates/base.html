@@ -8,38 +8,10 @@
 {% block body_html %}
     <body data-spy="scroll"  data-offset="60"  data-target=".navbar">
         {{ body_header }}
-        <div id="wrapper" class="toggled">
-            <!-- Sidebar -->
-            <div id="sidebar-wrapper">
-                <ul class="sidebar-nav">
-                    <li class="sidebar-brand">
-                        <a href="#">
-                            STUDIO
-                        </a>
-                    </li>
-                    <li class="sidebar-brand">
-                        <a href="#">
-                            BLOG
-                        </a>
-                    </li>
-                    <li class="sidebar-brand">
-                        <a href="#">
-                            FORGES
-                        </a>
-                    </li>
-                </ul>
-            </div>
 
-            <!-- Page Content -->
-            <div id="page-content-wrapper">
-                <div class="container-fluid">
+        {{ body_content }}
 
-                    {{ body_content }}
-
-
-                </div>
-            </div>
-        </div>>
+        {{ body_footer }}
     </body>
 {% endblock %}
 

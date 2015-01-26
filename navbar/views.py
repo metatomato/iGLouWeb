@@ -11,7 +11,7 @@ def get_navbar_body():
 
 
 def get_navbar_body_tag():
-    body_tag = " data-spy=""scroll"" data-offset=""60"" data-target="".navbar"" "
+    body_tag = ' data-spy= scroll  data-offset= 60  data-target= .navbar  '
     return body_tag
 
 

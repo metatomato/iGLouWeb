@@ -22,6 +22,7 @@ def view_studio_body_header():
 
 def view_studio_body_content():
     content = get_news_body()
+    content += get_studio_body_content()
     return content
 
 
@@ -32,5 +33,14 @@ def view_studio_includes():
 
 def view_studio_scripts():
     content = get_navbar_scripts()
-    content += get_news_scripts()
+    content += get_studio_body_scripts()
+    #content += get_news_scripts()
+    return content
+
+def get_studio_body_content():
+    content = render_to_string('studio_body.html')
+    return content
+
+def get_studio_body_scripts():
+    content = render_to_string('studio_scripts.html')
     return content

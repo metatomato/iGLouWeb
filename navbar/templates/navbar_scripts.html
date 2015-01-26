@@ -25,17 +25,8 @@
         function(){}
     );
 
-    $( "#sidebar-wrapper" ).hover(
-        function(){
-              $("#menu-toggle").css("color","#808080");
-        },
-        function(){
-              $("#wrapper").addClass("toggled");
-              $("#menu-toggle").css("color","#00d8ff");
-        }
-    );
 
-    $('.navbar-toggle').on('shown.bs.collapse', function() {
+    $('.navbar-toggle').on(   'shown.bs.collapse', function() {
          window.alert('shown');
     });
 

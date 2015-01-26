@@ -9,6 +9,7 @@ def view_news(request):
 
 def get_news_body():
     return render_to_string('news_body.html')
+    #return render_to_string('dummy.html')
 
 
 def get_news_body_tag():

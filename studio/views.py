@@ -33,6 +33,7 @@ def view_studio_body_footer():
 def view_studio_includes():
     content = get_navbar_includes()
     content += get_news_includes()
+    content += get_studio_includes()
     return content
 
 def view_studio_scripts():
@@ -58,4 +59,8 @@ def get_studio_body_header():
 
 def get_studio_body_footer():
     content = render_to_string('studio_body_footer.html')
+    return content
+
+def get_studio_includes():
+    content = render_to_string('studio_includes.html')
     return content

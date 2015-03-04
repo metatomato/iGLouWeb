@@ -8,4 +8,42 @@ $( "#sidebar-wrapper" ).hover(
               $("#menu-toggle").css("color","#00d8ff");
         }
     );
+
+var cat = ["android","rtr","cloud","consulting"];
+
+function clear_arrow() {
+    for(type in cat) {
+    type += "_tag";
+    $("#" + type).empty();
+    }
+}
+
+$("#android_btn").click(
+    function(){
+        clear_arrow();
+        $("#android_tag").append("<img class='img-responsive center-block' src='static/img/arrow.png' alt='Selection arrow' style='width: 256; height: 64px;'>");
+    }
+);
+
+$("#rtr_btn").click(
+    function(){
+        clear_arrow();
+        $("#rtr_tag").append("<img class='img-responsive center-block' src='static/img/arrow.png' alt='Selection arrow' style='width: 256; height: 64px;'>");
+        $("#rtr_content").removeClass("hidden_token");
+    }
+);
+
+$("#cloud_btn").click(
+    function(){
+        clear_arrow();
+        $("#cloud_tag").append("<img class='img-responsive center-block' src='static/img/arrow.png' alt='Selection arrow' style='width: 256; height: 64px;'>");
+    }
+);
+
+$("#consulting_btn").click(
+    function(){
+       clear_arrow();
+        $("#consulting_tag").append("<img class='img-responsive center-block' src='static/img/arrow.png' alt='Selection arrow' style='width: 256; height: 64px;'>");
+    }
+);
 </script>

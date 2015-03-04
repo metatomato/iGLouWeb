@@ -1,0 +1,22 @@
+.container-full {
+  margin: 0 auto;
+  width: 100%;
+}
+
+.container-fluid.card {
+    margin-top: 0px;
+    margin-bottom: 0px;
+    box-shadow: 0px 0px 10px black;
+    padding-top: 50px;
+    padding-bottom: 50px;
+}
+
+.hidden_token {
+  	visibility: hidden;
+  	height: 0px;
+}
+
+.visible_token {
+  	visibility: visible;
+  	height: 100%;
+}

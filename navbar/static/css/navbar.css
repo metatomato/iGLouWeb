@@ -44,6 +44,7 @@ p, div {
 }
 
 .navbar-iGLou {
+  border-width: 0;
   z-index: 1000;
   background-color: #fff;
   -webkit-box-shadow: inset 0 1px 0 rgba(255, 255, 255, .15), 0 1px 5px rgba(0, 0, 0, .075);
@@ -172,7 +173,7 @@ p, div {
 
   /* The navbar becomes detached from the top, so we round the corners */
   .navbar-wrapper .navbar {
-    border-radius: 4px;
+    border-radius: 0px;
   }
 }
 
@@ -198,19 +199,19 @@ p, div {
 }
 
 #wrapper.toggled {
-    padding-left: 250px;
+    padding-left: 180px;
 }
 
 #sidebar-wrapper {
     z-index: 1;
     position: fixed;
-    left: 250px;
+    left: 180px;
     width: 0;
     height: 100%;
-    margin-left: -250px;
+    margin-left: -180px;
     overflow-y: auto;
-    background: #808080;
-    background-color: #808080;
+    background: #ffffff;
+    background-color: #ffffff;
           -webkit-box-shadow: 10px 10px 5px 5px pink inset;
           box-shadow: inset -2px 0 5px rgba(0, 0, 0, .15),-2px 0 0px rgba(255, 255, 255, .075);
 
@@ -221,7 +222,7 @@ p, div {
 }
 
 #wrapper.toggled #sidebar-wrapper {
-    width: 250px;
+    width: 180px;
 }
 
 #page-content-wrapper {
@@ -231,7 +232,7 @@ p, div {
 
 #wrapper.toggled #page-content-wrapper {
     position: absolute;
-    margin-right: -250px;
+    margin-right: -180px;
 }
 
 /* Sidebar Styles */
@@ -284,7 +285,7 @@ p, div {
 
 
 #wrapper {
-    padding-left: 250px;
+    padding-left: 180px;
 }
 
 #wrapper.toggled {
@@ -292,7 +293,7 @@ p, div {
 }
 
 #sidebar-wrapper {
-    width: 250px;
+    width: 180px;
 }
 
 #wrapper.toggled #sidebar-wrapper {
@@ -300,7 +301,7 @@ p, div {
 }
 
 #page-content-wrapper {
-    padding: 20px;
+    padding: 0px;
 }
 
 #wrapper.toggled #page-content-wrapper {

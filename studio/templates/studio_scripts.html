@@ -1,4 +1,9 @@
 <script type="text/javascript">
+
+/////////////////////////////////////////////////////////////////////////////////////////
+// SIDEBAR SECTION
+/////////////////////////////////////////////////////////////////////////////////////////
+
 $( "#sidebar-wrapper" ).hover(
         function(){
               $("#menu-toggle").css("color","#808080");
@@ -9,41 +14,103 @@ $( "#sidebar-wrapper" ).hover(
         }
     );
 
-var cat = ["android","rtr","cloud","consulting"];
+/////////////////////////////////////////////////////////////////////////////////////////
+// SERVICES SECTION
+/////////////////////////////////////////////////////////////////////////////////////////
+
+var services_cat = ["android","rtr","cloud","consulting"];
+
+var current_services = "";
+
+function get_image_tag() {
+    return "<img class='img-responsive center-block' src='static/img/arrow.png' alt='Selection arrow' style='width: 256; height: 64px;'>";
+}
+
+function get_services_tag(category_name) {
+    return "#" + category_name + "_tag";
+}
+
+function get_services_content(category_name) {
+    return "#" + category_name + "_content";
+}
 
 function clear_arrow() {
-    for(type in cat) {
-    type += "_tag";
-    $("#" + type).empty();
+    for(i = 0 ; i < services_cat.length ; i++) {
+        var selector =  get_services_tag(services_cat[i]);
+        $(selector).empty();
+    }
+}
+
+function show_arrow(category) {
+     clear_arrow();
+     var selector =  get_services_tag(category);
+     $(selector).append(get_image_tag());
+}
+
+function set_content(category_name) {
+    var content = get_services_content(category_name);
+    var html_content = $(content).html();
+    $("#services_content").html(html_content);
+    current_services = category_name;
+}
+
+function is_content_hidden() {
+    return $("#services_content").hasClass("hidden_token");
+}
+
+function hide_content() {
+    $("#services_content").addClass("hidden_token")
+    clear_arrow();
+}
+
+
+function set_content_margin(category_name) {
+
+}
+
+
+function show_content(category_name) {
+    $(#services_content).css("margin-top",)
+    show_arrow(category_name);
+    set_content(category_name);
+    $("#services_content").removeClass("hidden_token");
+}
+
+function toogle_content(category_name) {
+    if( is_content_hidden() ) {
+        show_content(category_name);
+    } else {
+        if( current_services == category_name ) {
+            hide_content();
+        } else {
+            show_arrow(category_name);
+            set_content(category_name);
+        }
     }
 }
 
 $("#android_btn").click(
     function(){
-        clear_arrow();
-        $("#android_tag").append("<img class='img-responsive center-block' src='static/img/arrow.png' alt='Selection arrow' style='width: 256; height: 64px;'>");
+        toogle_content("android");
     }
 );
 
 $("#rtr_btn").click(
     function(){
-        clear_arrow();
-        $("#rtr_tag").append("<img class='img-responsive center-block' src='static/img/arrow.png' alt='Selection arrow' style='width: 256; height: 64px;'>");
-        $("#rtr_content").removeClass("hidden_token");
+        toogle_content("rtr");
     }
 );
 
 $("#cloud_btn").click(
     function(){
-        clear_arrow();
-        $("#cloud_tag").append("<img class='img-responsive center-block' src='static/img/arrow.png' alt='Selection arrow' style='width: 256; height: 64px;'>");
+        toogle_content("cloud");
     }
 );
 
 $("#consulting_btn").click(
     function(){
-       clear_arrow();
-        $("#consulting_tag").append("<img class='img-responsive center-block' src='static/img/arrow.png' alt='Selection arrow' style='width: 256; height: 64px;'>");
+        toogle_content("consulting");
     }
 );
+
 </script>

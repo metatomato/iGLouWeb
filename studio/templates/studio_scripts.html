@@ -60,7 +60,7 @@ function is_content_hidden() {
 
 function hide_content() {
     $("#btn_close_services").addClass("hidden_token");
-    $("#services_content").slideUp("slow", function() {
+    $("#services_content").slideUp("fast", function() {
             $("#services_content").addClass("hidden_token")
             clear_arrow();
         }

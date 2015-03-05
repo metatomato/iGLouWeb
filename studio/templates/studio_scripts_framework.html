@@ -1,0 +1,111 @@
+<script type="text/javascript">
+    
+/////////////////////////////////////////////////////////////////////////////////////////
+// FRAMEWORK SECTION
+/////////////////////////////////////////////////////////////////////////////////////////
+
+var framework_cat = ["agile","gtc","public","design"];
+
+var current_framework = "";
+
+function get_image_tag() {
+    return "<img class='img-responsive center-block' src='static/img/arrow.png' alt='Selection arrow' style='width: 256; height: 64px;'>";
+}
+
+function get_framework_tag(category_name) {
+    return "#" + category_name + "_tag";
+}
+
+function get_framework_content(category_name) {
+    return "#" + category_name + "_content";
+}
+
+function clear_framework_arrow() {
+    for(i = 0 ; i < framework_cat.length ; i++) {
+        var selector =  get_framework_tag(framework_cat[i]);
+        $(selector).empty();
+    }
+}
+
+function show_framework_arrow(category) {
+     clear_framework_arrow();
+     var selector =  get_framework_tag(category);
+     $(selector).append(get_image_tag());
+}
+
+function set_framework_content(category_name) {
+    var content = get_framework_content(category_name);
+    var html_content = $(content).html();
+    $("#framework_content").html(html_content);
+    current_framework = category_name;
+}
+
+function is_framework_content_hidden() {
+    return $("#framework_content").hasClass("hidden_token");
+}
+
+function hide_framework_content() {
+    $("#btn_close_framework").addClass("hidden_token");
+    $("#framework_content").slideUp("fast", function() {
+            $("#framework_content").addClass("hidden_token")
+            clear_framework_arrow();
+        }
+    );
+    current_framework = "";
+}
+
+function show_framework_content(category_name) {
+    show_framework_arrow(category_name);
+    set_framework_content(category_name);
+
+    $("#framework_content").slideDown("slow", function() {
+            $("#framework_content").removeClass("hidden_token");
+            $("#btn_close_framework").removeClass("hidden_token");
+        }
+    );
+}
+
+function toogle_framework_content(category_name) {
+    if( is_framework_content_hidden() ) {
+        show_framework_content(category_name);
+    } else {
+        if( current_framework == category_name ) {
+            hide_framework_content();
+        } else {
+            show_framework_arrow(category_name);
+            set_framework_content(category_name);
+        }
+    }
+}
+
+$("#btn_close_framework").click(
+    function() {
+        hide_framework_content();
+    }
+);
+
+$("#agile_btn").click(
+    function(){
+        toogle_framework_content("agile");
+    }
+);
+
+$("#gtc_btn").click(
+    function(){
+        toogle_framework_content("gtc");
+    }
+);
+
+$("#public_btn").click(
+    function(){
+        toogle_framework_content("public");
+    }
+);
+
+$("#design_btn").click(
+    function(){
+        toogle_framework_content("design");
+    }
+);
+
+</script>

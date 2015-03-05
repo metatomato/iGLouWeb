@@ -46,11 +46,16 @@ def view_studio_scripts():
 
 
 def get_studio_body_content():
-    content = render_to_string('studio_body.html')
+    content_services = render_to_string('studio_body.html')
+    content_framework = render_to_string('studio_body_framework.html')
+    content = content_services + content_framework
     return content
 
 def get_studio_body_scripts():
-    content = render_to_string('studio_scripts.html')
+    content_services = render_to_string('studio_scripts.html');
+    content_framework = render_to_string('studio_scripts_framework.html')
+    content = content_services + content_framework
+
     return content
 
 def get_studio_body_header():

@@ -13,13 +13,7 @@
 }
 
 .hidden_token {
-  	//visibility: hidden;
-
-    margin-top: -500px;
-    -webkit-transition: all 0.5s ease;
-    -moz-transition: all 0.5s ease;
-    -o-transition: all 0.5s ease;
-    transition: all 0.5s ease;
+    display:none;
 }
 
 .visible_token {
@@ -29,18 +23,14 @@
 
 .img-services:hover {
     cursor: pointer;
-    content:url('../img/icon_RTR.png');
 }
 
 #services_content {
-    -webkit-transition: all 0.5s ease;
-    -moz-transition: all 0.5s ease;
-    -o-transition: all 0.5s ease;
-    transition: all 0.5s ease;
+
 }
 
 .subcard {
-   position: relative; z-index:-1;
+   position: relative; z-index:1;
 }
 
 .dummy {

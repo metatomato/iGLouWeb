@@ -59,21 +59,24 @@ function is_content_hidden() {
 }
 
 function hide_content() {
-    $("#services_content").addClass("hidden_token")
-    clear_arrow();
+    $("#btn_close_services").addClass("hidden_token");
+    $("#services_content").slideUp("slow", function() {
+            $("#services_content").addClass("hidden_token")
+            clear_arrow();
+        }
+    );
+    current_services = "";
 }
-
-
-function set_content_margin(category_name) {
-
-}
-
 
 function show_content(category_name) {
-    $(#services_content).css("margin-top",)
     show_arrow(category_name);
     set_content(category_name);
-    $("#services_content").removeClass("hidden_token");
+
+    $("#services_content").slideDown("slow", function() {
+            $("#services_content").removeClass("hidden_token");
+            $("#btn_close_services").removeClass("hidden_token");
+        }
+    );
 }
 
 function toogle_content(category_name) {
@@ -88,6 +91,12 @@ function toogle_content(category_name) {
         }
     }
 }
+
+$("#btn_close_services").click(
+    function() {
+        hide_content();
+    }
+);
 
 $("#android_btn").click(
     function(){

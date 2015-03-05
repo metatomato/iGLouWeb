@@ -39,7 +39,7 @@ p, div {
 /* Declare heights because of positioning of img element */
 .carousel .item {
   height: 500px;
-  background-color: #444444;
+  background-color: #444;
 
     box-shadow: 0px 0px 10px black inset;
 }
@@ -51,6 +51,17 @@ p, div {
   background-position: center;
 }
 
+.carousel-control.left.iGLou {
+  background-image: none;
+}
+
+.carousel-control.right.iGLou {
+  background-image: none;
+}
+
+.carousel-control.iGLou {
+  width: 10%;
+}
 /* Featurettes
 ------------------------- */
 .featurette {

@@ -48,7 +48,8 @@ def view_studio_scripts():
 def get_studio_body_content():
     content_services = render_to_string('studio_body.html')
     content_framework = render_to_string('studio_body_framework.html')
-    content = content_services + content_framework
+    content_about = render_to_string('studio_body_about.html')
+    content = content_services + content_framework + content_about
     return content
 
 def get_studio_body_scripts():

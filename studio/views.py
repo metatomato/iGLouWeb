@@ -49,13 +49,15 @@ def get_studio_body_content():
     content_services = render_to_string('studio_body.html')
     content_framework = render_to_string('studio_body_framework.html')
     content_about = render_to_string('studio_body_about.html')
-    content = content_services + content_framework + content_about
+    content_contact = render_to_string('studio_body_contact.html')
+    content = content_services + content_framework + content_about + content_contact
     return content
 
 def get_studio_body_scripts():
-    content_services = render_to_string('studio_scripts.html');
+    content_services = render_to_string('studio_scripts.html')
     content_framework = render_to_string('studio_scripts_framework.html')
-    content = content_services + content_framework
+    content_about = render_to_string('studio_scripts_about.html')
+    content = content_services + content_framework + content_about
 
     return content
 

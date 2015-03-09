@@ -11,6 +11,14 @@ p, div {
   color: #00d8ff;
 }
 
+.iGLou_orange {
+  color: #ff8000;
+}
+
+.iGLou_dark_gray {
+  color: #808080;
+}
+
 /* Carousel base class */
 .carousel {
   height: 500px;

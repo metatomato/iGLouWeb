@@ -35,6 +35,7 @@ function get_services_content(category_name) {
 }
 
 function clear_arrow() {
+    //$(".arrow").css("display",none);
     for(i = 0 ; i < services_cat.length ; i++) {
         var selector =  get_services_tag(services_cat[i]);
         $(selector).empty();
@@ -60,9 +61,11 @@ function is_content_hidden() {
 
 function hide_content() {
     $("#btn_close_services").addClass("hidden_token");
-    $("#services_content").slideUp("fast", function() {
+    $("#services_content").slideUp( function() {
             $("#services_content").addClass("hidden_token")
             clear_arrow();
+            open_first_parallax();
+            scroll_services();
         }
     );
     current_services = "";
@@ -72,7 +75,7 @@ function show_content(category_name) {
     show_arrow(category_name);
     set_content(category_name);
 
-    $("#services_content").slideDown("slow", function() {
+    $("#services_content").slideDown( function() {
             $("#services_content").removeClass("hidden_token");
             $("#btn_close_services").removeClass("hidden_token");
         }
@@ -92,6 +95,33 @@ function toogle_content(category_name) {
     }
 }
 
+
+function open_first_parallax() {
+    $(".first_parallax").slideDown(
+        function() {
+            $("#first_parallax").removeClass("hidden_token");
+        }
+    );
+}
+
+function close_first_parallax(callback,params) {
+
+    scroll_services();
+
+    $(".first_parallax").slideUp(function() {
+                $(".first_parallax").addClass("hidden_token")
+                callback(params);
+            }
+    );
+}
+
+
+function scroll_services() {
+    var pos = $("#android_btn").offset().top - 2 * $(".navbar-iGLou .container").height();
+    $('body, html').animate({scrollTop:pos}, 500);
+}
+
+
 $("#btn_close_services").click(
     function() {
         hide_content();
@@ -100,25 +130,29 @@ $("#btn_close_services").click(
 
 $("#android_btn").click(
     function(){
-        toogle_content("android");
+        close_first_parallax(toogle_content,"android");
+        //toogle_content("android");
     }
 );
 
 $("#rtr_btn").click(
     function(){
-        toogle_content("rtr");
+        close_first_parallax(toogle_content,"rtr");
+        //toogle_content("rtr");
     }
 );
 
 $("#cloud_btn").click(
     function(){
-        toogle_content("cloud");
+        close_first_parallax(toogle_content,"cloud");
+        //toogle_content("cloud");
     }
 );
 
 $("#consulting_btn").click(
     function(){
-        toogle_content("consulting");
+        close_first_parallax(toogle_content,"consulting");
+        //toogle_content("consulting");
     }
 );
 

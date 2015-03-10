@@ -46,9 +46,11 @@ function is_framework_content_hidden() {
 
 function hide_framework_content() {
     $("#btn_close_framework").addClass("hidden_token");
-    $("#framework_content").slideUp("fast", function() {
+    $("#framework_content").slideUp(function() {
             $("#framework_content").addClass("hidden_token")
             clear_framework_arrow();
+            open_third_parallax();
+            scroll_framework();
         }
     );
     current_framework = "";
@@ -58,7 +60,7 @@ function show_framework_content(category_name) {
     show_framework_arrow(category_name);
     set_framework_content(category_name);
 
-    $("#framework_content").slideDown("slow", function() {
+    $("#framework_content").slideDown(function() {
             $("#framework_content").removeClass("hidden_token");
             $("#btn_close_framework").removeClass("hidden_token");
         }
@@ -78,6 +80,34 @@ function toogle_framework_content(category_name) {
     }
 }
 
+
+function open_third_parallax() {
+    $(".third_parallax").slideDown(
+        function() {
+            $("#third_parallax").removeClass("hidden_token");
+        }
+    );
+}
+
+function close_third_parallax(callback,params) {
+
+    scroll_framework();
+
+    $(".third_parallax").slideUp(
+        function() {
+            $(".third_parallax").addClass("hidden_token")
+            callback(params);
+        }
+    );
+
+}
+
+function scroll_framework() {
+    var pos = $("#agile_btn").offset().top - 2 * $(".navbar-iGLou .container").height();
+    $('body, html').animate({scrollTop:pos}, 500);
+}
+
+
 $("#btn_close_framework").click(
     function() {
         hide_framework_content();
@@ -86,25 +116,29 @@ $("#btn_close_framework").click(
 
 $("#agile_btn").click(
     function(){
-        toogle_framework_content("agile");
+        close_third_parallax(toogle_framework_content,"agile");
+        //toogle_framework_content("agile");
     }
 );
 
 $("#gtc_btn").click(
     function(){
-        toogle_framework_content("gtc");
+        close_third_parallax(toogle_framework_content,"gtc");
+        //toogle_framework_content("gtc");
     }
 );
 
 $("#public_btn").click(
     function(){
-        toogle_framework_content("public");
+        close_third_parallax(toogle_framework_content,"public");
+        //toogle_framework_content("public");
     }
 );
 
 $("#design_btn").click(
     function(){
-        toogle_framework_content("design");
+        close_third_parallax(toogle_framework_content,"design");
+        //toogle_framework_content("design");
     }
 );
 

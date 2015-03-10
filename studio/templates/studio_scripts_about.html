@@ -49,6 +49,8 @@ function hide_about_content() {
     $("#about_content").slideUp("fast", function() {
             $("#about_content").addClass("hidden_token")
             clear_about_arrow();
+            open_second_parallax();
+            scroll_about();
         }
     );
     current_about = "";
@@ -78,6 +80,34 @@ function toogle_about_content(category_name) {
     }
 }
 
+
+function open_second_parallax() {
+    $(".second_parallax").slideDown(
+        function() {
+            $("#second_parallax").removeClass("hidden_token");
+        }
+    );
+}
+
+function close_second_parallax(callback,params) {
+
+    scroll_about();
+
+    $(".second_parallax").slideUp(
+        function() {
+            $(".second_parallax").addClass("hidden_token")
+            callback(params);
+        }
+    );
+
+}
+
+function scroll_about() {
+     var pos = $("#studio_btn").offset().top - 2 * $(".navbar-iGLou .container").height();
+    $('body, html').animate({scrollTop:pos}, 500);
+}
+
+
 $("#btn_close_about").click(
     function() {
         hide_about_content();
@@ -86,13 +116,15 @@ $("#btn_close_about").click(
 
 $("#studio_btn").click(
     function(){
-        toogle_about_content("studio");
+        close_second_parallax(toogle_about_content,"studio");
+        //toogle_about_content("studio");
     }
 );
 
 $("#me_btn").click(
     function(){
-        toogle_about_content("me");
+        close_second_parallax(toogle_about_content,"me");
+        //toogle_about_content("me");
     }
 );
     

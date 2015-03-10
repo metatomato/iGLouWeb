@@ -62,6 +62,7 @@ function show_contact_content(category_name) {
     $("#contact_content").slideDown(function() {
             $("#contact_content").removeClass("hidden_token");
             $("#btn_close_contact").removeClass("hidden_token");
+            google.maps.event.trigger(map, 'resize');
         }
     );
 }
@@ -103,6 +104,7 @@ $("#mail_btn").click(
 $("#maps_btn").click(
     function(){
         toogle_contact_content("maps");
+
     }
 );
     

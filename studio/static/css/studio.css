@@ -91,7 +91,7 @@
 
 .parallax
 {
-    height: 720px;
+    height: 500px;
     padding:0;
     margin:0;
 
@@ -123,12 +123,12 @@
     margin: 0;
     color: white;
     z-index:3000;
-   /* text-shadow: 2px 2px 4px black; */
+
 
 }
 
-.parallax_content h1{
-
+.third_parallax{
+  text-shadow: 2px 2px 4px black;
 }
 
 .right_content {
@@ -139,6 +139,9 @@
    left: 30%;
 }
 
+.center_content {
+    left: 40%;
+}
 
 
 @media (max-width: 721px) {

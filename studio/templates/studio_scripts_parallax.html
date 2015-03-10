@@ -2,6 +2,7 @@
 
     var O_Y;
     var O_y;
+    var H;
     var W;
 
     var y_i_1;
@@ -23,35 +24,56 @@
     }
 
     function init_dimensions() {
+
         update_dimensions();
+
         O_Y   = $(".navbar-iGLou .container").height();
-        W     = $(window).height() - O_Y;
+        H     = $(window).height() - O_Y;
+        W     = $(window).width();
+
 
 
         y_i_1 = $(".first_parallax").offset().top - O_Y;
         Y_1   = $(".first_parallax").height();
-        if(y_i_1 < W) {
-            L_1   = Y_1 + W - ( W - y_i_1);
-            console.debug("parallax is initially onscreen!" + (W - y_i_1));
+        if(y_i_1 < H) {
+            L_1   = Y_1 + H - ( H - y_i_1);
+            console.debug("parallax is initially onscreen!" + (H - y_i_1));
         } else {
-            L_1   = W + Y_1;
+            L_1   = H + Y_1;
         }
         I_1   = $(".first_parallax img").height();
         OFF_1 =  1000;
         OVF_1  = I_1 + OFF_1 - Y_1;
 
 
+
         y_i_2 = $(".second_parallax").offset().top - O_Y;
         Y_2   = $(".second_parallax").height();
-        if(y_i_2 < W) {
-            L_2   = Y_2 + W - ( W - y_i_2);
-            console.debug("parallax is initially onscreen!" + (W - y_i_2));
+        if(y_i_2 < H) {
+            L_2   = Y_2 + H - ( H - y_i_2);
+            console.debug("parallax is initially onscreen!" + (H - y_i_2));
         } else {
-            L_2   = W + Y_2;
+            L_2   = H + Y_2;
         }
         I_2   = $(".second_parallax img").height();
-        OFF_2 =  1000;
+        OFF_2 =  500;
         OVF_2  = I_2 + OFF_2 - Y_2;
+
+
+
+        $(".third_parallax").css("height", W / 3.2 );
+
+        y_i_3 = $(".third_parallax").offset().top - O_Y;
+        Y_3   = $(".third_parallax").height();
+        if(y_i_3 < H) {
+            L_3   = Y_3 + H - ( H - y_i_3);
+            console.debug("parallax is initially onscreen!" + (H - y_i_3));
+        } else {
+            L_3   = H + Y_3;
+        }
+        I_3   = $(".second_parallax img").height();
+        OFF_3 =  0;
+        OVF_3  = I_3 + OFF_3 - Y_3;
     };
 
 
@@ -61,7 +83,7 @@
         init_dimensions();
 
         console.debug("origin: " + O_y);
-        console.debug("screen: " + W);
+        console.debug("screen W: " + W + "   H: " + H);
         console.debug("parallax height: " + Y_1);
         console.debug("parallax scroll length: " + L_1);
         console.debug("parallax image height: " + I_1);
@@ -80,7 +102,7 @@
             var is_y_1_onscreen = false;
 
             if(y_1 > 0) {
-                if( y_1 < W ) {
+                if( y_1 < H ) {
                     is_y_1_onscreen = true;
                 }
                 else {
@@ -95,10 +117,10 @@
             }
 
             if( is_y_1_onscreen ) {
-                if(y_i_1 < W) {
+                if(y_i_1 < H) {
                     var ratio = (y_i_1 - y_1) / L_1;
                 } else {
-                    var ratio = (W - y_1) / L_1;
+                    var ratio = (H - y_1) / L_1;
                 }
                 dY_1 = -1 * ratio * OVF_1 + OFF_1 / 2;
                 $(".first_parallax img").css("margin-top",dY_1);
@@ -107,12 +129,13 @@
 
 
 
+
             var dY_2 = 0;
             var y_2 = y_i_2 - O_y;
             var is_y_2_onscreen = false;
 
             if(y_2 > 0) {
-                if( y_2 < W ) {
+                if( y_2 < H ) {
                     is_y_2_onscreen = true;
                 }
                 else {
@@ -127,14 +150,49 @@
             }
 
             if( is_y_2_onscreen ) {
-                if(y_i_2 < W) {
+                if(y_i_2 < H) {
                     var ratio = (y_i_2 - y_2) / L_2;
                 } else {
-                    var ratio = (W - y_2) / L_2;
+                    var ratio = (H - y_2) / L_2;
                 }
                 dY_2 = -1 * ratio * OVF_2 + OFF_2 / 2;
                 $(".second_parallax img").css("margin-top",dY_2);
                 console.debug("ratio " + (ratio*100) + "     pos " + y_2);
+
+            }
+
+
+
+
+
+            var dY_3 = 0;
+            var y_3 = y_i_3 - O_y;
+            var is_y_3_onscreen = false;
+
+            if(y_3 > 0) {
+                if( y_3 < H ) {
+                    is_y_3_onscreen = true;
+                }
+                else {
+                    console.debug("ONE IS OUT! ");
+                }
+            } else {
+                if( (y_3 + Y_3) > 0) {
+                    is_y_3_onscreen = true;
+                } else {
+                    console.debug("ONE IS OUT! ");
+                }
+            }
+
+            if( is_y_3_onscreen ) {
+                if(y_i_3 < H) {
+                    var ratio = (y_i_3 - y_3) / L_3;
+                } else {
+                    var ratio = (H - y_3) / L_3;
+                }
+                dY_3 = -1 * OVF_3 + 1.4 * ratio * OVF_3;
+                $(".third_parallax img").css("margin-top",dY_3);
+                console.debug("ratio " + (ratio*100) + "     pos " + y_3);
             }
         }
     );

@@ -58,7 +58,9 @@ def get_studio_body_scripts():
     content_framework = render_to_string('studio_scripts_framework.html')
     content_about = render_to_string('studio_scripts_about.html')
     content_parallax = render_to_string('studio_scripts_parallax.html')
-    content = content_services + content_framework + content_about + content_parallax
+    content_maps = render_to_string('studio_scripts_maps.html')
+    content_contact = render_to_string('studio_scripts_contact.html')
+    content = content_services + content_framework + content_about + content_parallax + content_maps + content_contact
 
     return content
 

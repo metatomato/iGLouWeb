@@ -1,0 +1,109 @@
+<script type="text/javascript">
+    
+/////////////////////////////////////////////////////////////////////////////////////////
+// contact SECTION
+/////////////////////////////////////////////////////////////////////////////////////////
+
+var contact_cat = ["mail","maps"];
+
+var current_contact = "";
+
+function get_image_tag() {
+    return "<img class='img-responsive center-block' src='static/img/arrow.png' alt='Selection arrow' style='width: 256; height: 64px;'>";
+}
+
+function get_contact_tag(category_name) {
+    return "#" + category_name + "_tag";
+}
+
+function get_contact_content(category_name) {
+    return "#" + category_name + "_content";
+}
+
+function clear_contact_arrow() {
+    for(i = 0 ; i < contact_cat.length ; i++) {
+        var selector =  get_contact_tag(contact_cat[i]);
+        $(selector).empty();
+    }
+}
+
+function show_contact_arrow(category) {
+     clear_contact_arrow();
+     var selector =  get_contact_tag(category);
+     $(selector).append(get_image_tag());
+}
+
+function set_contact_content(category_name) {
+    var content = get_contact_content(category_name);
+    var html_content = $(content).html();
+    $("#contact_content").html(html_content);
+    current_contact = category_name;
+}
+
+function is_contact_content_hidden() {
+    return $("#contact_content").hasClass("hidden_token");
+}
+
+function hide_contact_content() {
+    $("#btn_close_contact").addClass("hidden_token");
+    $("#contact_content").slideUp("fast", function() {
+            $("#contact_content").addClass("hidden_token")
+            clear_contact_arrow();
+            scroll_contact();
+        }
+    );
+    current_contact = "";
+}
+
+function show_contact_content(category_name) {
+    show_contact_arrow(category_name);
+    //set_contact_content(category_name);
+
+    $("#contact_content").slideDown(function() {
+            $("#contact_content").removeClass("hidden_token");
+            $("#btn_close_contact").removeClass("hidden_token");
+        }
+    );
+}
+
+function toogle_contact_content(category_name) {
+    if( is_contact_content_hidden() ) {
+        show_contact_content(category_name);
+    } else {
+        if( current_contact == category_name ) {
+            hide_contact_content();
+        } else {
+            show_contact_arrow(category_name);
+            set_contact_content(category_name);
+        }
+    }
+}
+
+
+
+
+function scroll_contact() {
+     var pos = $("#mail_btn").offset().top - 2 * $(".navbar-iGLou .container").height();
+    $('body, html').animate({scrollTop:pos}, 500);
+}
+
+
+$("#btn_close_contact").click(
+    function() {
+        hide_contact_content();
+    }
+);
+
+$("#mail_btn").click(
+    function(){
+        toogle_contact_content("mail");
+    }
+);
+
+$("#maps_btn").click(
+    function(){
+        toogle_contact_content("maps");
+    }
+);
+    
+</script>

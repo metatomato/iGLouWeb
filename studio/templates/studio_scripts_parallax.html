@@ -1,5 +1,6 @@
 <script type="text/javascript">
 
+    var O_Y;
     var O_y;
     var W;
 
@@ -18,26 +19,39 @@
     var OFF_2;
 
     function update_dimensions() {
-        O_y = $(".navbar-iGLou .container").offset().top + $(".navbar-iGLou .container").height();
+        O_y = $(".navbar-iGLou .container").offset().top;
     }
 
     function init_dimensions() {
         update_dimensions();
-        W     = $(window).height();
+        O_Y   = $(".navbar-iGLou .container").height();
+        W     = $(window).height() - O_Y;
 
-        y_i_1 = $(".first_parallax").offset().top;
+
+        y_i_1 = $(".first_parallax").offset().top - O_Y;
         Y_1   = $(".first_parallax").height();
-        L_1   = Y_1 + W;
+        if(y_i_1 < W) {
+            L_1   = Y_1 + W - ( W - y_i_1);
+            console.debug("parallax is initially onscreen!" + (W - y_i_1));
+        } else {
+            L_1   = W + Y_1;
+        }
         I_1   = $(".first_parallax img").height();
-        OVF_1  = I_1 - Y_1;
-        OFF_1 =  I_1 * 0.8 / 2;
+        OFF_1 =  1000;
+        OVF_1  = I_1 + OFF_1 - Y_1;
 
-        y_i_2 = $(".second_parallax").offset().top;
+
+        y_i_2 = $(".second_parallax").offset().top - O_Y;
         Y_2   = $(".second_parallax").height();
-        L_2   = Y_2 + W;
+        if(y_i_2 < W) {
+            L_2   = Y_2 + W - ( W - y_i_2);
+            console.debug("parallax is initially onscreen!" + (W - y_i_2));
+        } else {
+            L_2   = W + Y_2;
+        }
         I_2   = $(".second_parallax img").height();
-        OVF_2  = I_2 - Y_2;
-        OFF_2 =  I_2 / 4;
+        OFF_2 =  1000;
+        OVF_2  = I_2 + OFF_2 - Y_2;
     };
 
 
@@ -47,11 +61,14 @@
         init_dimensions();
 
         console.debug("origin: " + O_y);
+        console.debug("screen: " + W);
         console.debug("parallax height: " + Y_1);
         console.debug("parallax scroll length: " + L_1);
         console.debug("parallax image height: " + I_1);
         console.debug("parallax image overflow: " + OVF_1);
         console.debug("parallax image offset: " + OFF_1);
+
+        console.debug("parallax init pos: " + y_i_1);
     });
 
     $(window).scroll(
@@ -67,21 +84,25 @@
                     is_y_1_onscreen = true;
                 }
                 else {
-                    console.debug("ONE IS OUT! ");
+
                 }
             } else {
-                if( (y_1 + Y_1) < W && (y_1 + Y_1) > 0) {
+                if( (y_1 + Y_1) > 0) {
                     is_y_1_onscreen = true;
                 } else {
-                    console.debug("ONE IS OUT! ");
+
                 }
             }
 
             if( is_y_1_onscreen ) {
-                var ratio = (Y_1 - y_1) / L_1;
-                dY_1 = -1 * (Y_1 - y_1) / L_1 * I_1 + OFF_1;
+                if(y_i_1 < W) {
+                    var ratio = (y_i_1 - y_1) / L_1;
+                } else {
+                    var ratio = (W - y_1) / L_1;
+                }
+                dY_1 = -1 * ratio * OVF_1 + OFF_1 / 2;
                 $(".first_parallax img").css("margin-top",dY_1);
-                console.debug("ratio " + ratio);
+                console.debug("ratio " + (ratio*100) + "     pos " + y_1);
             }
 
 
@@ -90,15 +111,15 @@
             var y_2 = y_i_2 - O_y;
             var is_y_2_onscreen = false;
 
-             if(y_2 > 0) {
+            if(y_2 > 0) {
                 if( y_2 < W ) {
                     is_y_2_onscreen = true;
                 }
                 else {
-                    console.debug("TWO IS OUT! ");
+                    console.debug("ONE IS OUT! ");
                 }
             } else {
-                if( (y_2 + Y_2) < W && (y_2 + Y_2) > 0) {
+                if( (y_2 + Y_2) > 0) {
                     is_y_2_onscreen = true;
                 } else {
                     console.debug("ONE IS OUT! ");
@@ -106,9 +127,14 @@
             }
 
             if( is_y_2_onscreen ) {
-                var ratio = (Y_2 - y_2) / L_2;
-                dY_2 = -1 * (Y_2 - y_2) / L_2 * I_2 + OFF_2;
+                if(y_i_2 < W) {
+                    var ratio = (y_i_2 - y_2) / L_2;
+                } else {
+                    var ratio = (W - y_2) / L_2;
+                }
+                dY_2 = -1 * ratio * OVF_2 + OFF_2 / 2;
                 $(".second_parallax img").css("margin-top",dY_2);
+                console.debug("ratio " + (ratio*100) + "     pos " + y_2);
             }
         }
     );

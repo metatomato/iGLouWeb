@@ -91,25 +91,19 @@
 
 .parallax
 {
-    height: 700px;
+    height: 720px;
     padding:0;
     margin:0;
 
 }
 
-.parallax.first_parallax {
-    background: -webkit-linear-gradient(left, #444, #ccc); /* For Safari 5.1 to 6.0 */
-    background: -o-linear-gradient(right, #444, #ccc); /* For Opera 11.1 to 12.0 */
-    background: -moz-linear-gradient(right, #444, #ccc); /* For Firefox 3.6 to 15 */
-    background: linear-gradient(to right, #444, #ccc);
+.parallax.first_parallax, .parallax.second_parallax {
+    background: -webkit-linear-gradient(left, #444, #777); /* For Safari 5.1 to 6.0 */
+    background: -o-linear-gradient(right, #444, #777); /* For Opera 11.1 to 12.0 */
+    background: -moz-linear-gradient(right, #444, #777); /* For Firefox 3.6 to 15 */
+    background: linear-gradient(to right, #444, #777);
 }
 
-.parallax.second_parallax {
-    background: -webkit-linear-gradient(left, #ccc, #eee); /* For Safari 5.1 to 6.0 */
-    background: -o-linear-gradient(right, #ccc, #eee); /* For Opera 11.1 to 12.0 */
-    background: -moz-linear-gradient(right, #ccc, #eee); /* For Firefox 3.6 to 15 */
-    background: linear-gradient(to right, #ccc, #eee);
-}
 
 .parallax img {
   width: 100%;
@@ -134,7 +128,7 @@
 }
 
 .parallax_content h1{
-   font-size: 400%;
+
 }
 
 .right_content {
@@ -142,17 +136,27 @@
 }
 
 .left_content {
-   left: 10%;
+   left: 30%;
 }
 
 
 
-@media (max-width: 980px) {
+@media (max-width: 721px) {
   .parallax
   {
     margin-top: -10px;
+    height: 300px;
   }
 }
+
+@media (max-width: 720px) {
+  .parallax
+  {
+    margin-top: -10px;
+    height: 100px;
+  }
 }
+
+
 
 

@@ -19,6 +19,13 @@
     var OVF_2;
     var OFF_2;
 
+    var y_i_3;
+    var Y_3;
+    var L_3;
+    var I_3;
+    var OVF_3;
+    var OFF_3;
+
     function update_dimensions() {
         O_y = $(".navbar-iGLou .container").offset().top;
     }
@@ -124,7 +131,7 @@
                 }
                 dY_1 = -1 * ratio * OVF_1 + OFF_1 / 2;
                 $(".first_parallax img").css("margin-top",dY_1);
-                console.debug("ratio " + (ratio*100) + "     pos " + y_1);
+                //console.debug("ratio " + (ratio*100) + "     pos " + y_1);
             }
 
 
@@ -139,13 +146,13 @@
                     is_y_2_onscreen = true;
                 }
                 else {
-                    console.debug("ONE IS OUT! ");
+
                 }
             } else {
                 if( (y_2 + Y_2) > 0) {
                     is_y_2_onscreen = true;
                 } else {
-                    console.debug("ONE IS OUT! ");
+
                 }
             }
 
@@ -157,7 +164,7 @@
                 }
                 dY_2 = -1 * ratio * OVF_2 + OFF_2 / 2;
                 $(".second_parallax img").css("margin-top",dY_2);
-                console.debug("ratio " + (ratio*100) + "     pos " + y_2);
+
 
             }
 

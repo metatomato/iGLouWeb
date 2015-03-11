@@ -1,6 +1,8 @@
 .container-full {
   margin: 0 auto;
   width: 100%;
+  position: absolute;
+  z-index: 1;
 }
 
 .container-fluid {
@@ -24,6 +26,7 @@
 
 .row {
   margin:0;
+  padding:0;
 }
 
 .mask{
@@ -87,11 +90,18 @@
 
 .container-fluid.subcard {
   position: relative;
-  z-index:-1; //very important
+  z-index: -1; //very important
   padding:0;
   margin:0;
 }
 
+.container-fluid.subcard .col-lg-12 {
+  padding: 0;
+}
+
+#contact_content {
+    margin-top: -64px;
+}
 
 .parallax
 {
@@ -101,13 +111,22 @@
     overflow: hidden;
 }
 
-.parallax.first_parallax, .parallax.second_parallax {
+.parallax.first_parallax, .parallax.second_parallax, .parallax.third_parallax, #legals_content {
     background: -webkit-linear-gradient(left, #444, #777); /* For Safari 5.1 to 6.0 */
     background: -o-linear-gradient(right, #444, #777); /* For Opera 11.1 to 12.0 */
     background: -moz-linear-gradient(right, #444, #777); /* For Firefox 3.6 to 15 */
     background: linear-gradient(to right, #444, #777);
+
+    margin-top: -10px;
 }
 
+#legals_content {
+    width: 100%;
+    height: 100%;
+    margin-top: -30px;
+    padding: 50px;
+    color: white;
+}
 
 .parallax img {
   width: 100%;
@@ -147,7 +166,21 @@
     left: 40%;
 }
 
+.contact_row {
+ background: -webkit-linear-gradient(left, #444, #777); /* For Safari 5.1 to 6.0 */
+ background: -o-linear-gradient(right, #444, #777); /* For Opera 11.1 to 12.0 */
+ background: -moz-linear-gradient(right, #444, #777); /* For Firefox 3.6 to 15 */
+ background: linear-gradient(to right, #444, #777);
+}
 
+#btn_close_contact {
+    margin-top: 30px;
+    margin-bottom: 50px;
+}
+
+#mail_content_tag {
+    margin-top: 50px;
+}
 
 @media (max-width: 721px) {
   .parallax

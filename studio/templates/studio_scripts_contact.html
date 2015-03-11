@@ -46,10 +46,9 @@ function is_contact_content_hidden() {
 
 function hide_contact_content() {
     $("#btn_close_contact").addClass("hidden_token");
-    $("#contact_content").slideUp("fast", function() {
+    $("#contact_content").slideUp(function() {
             $("#contact_content").addClass("hidden_token")
             clear_contact_arrow();
-            scroll_contact();
         }
     );
     current_contact = "";
@@ -57,17 +56,21 @@ function hide_contact_content() {
 
 function show_contact_content(category_name) {
     show_contact_arrow(category_name);
-    //set_contact_content(category_name);
+    set_contact_content(category_name);
 
     $("#contact_content").slideDown(function() {
             $("#contact_content").removeClass("hidden_token");
             $("#btn_close_contact").removeClass("hidden_token");
-            google.maps.event.trigger(map, 'resize');
+            if(current_contact == "maps") {
+               displayMap();
+                console.debug('Maps is Initializing...');
+            }
         }
     );
 }
 
 function toogle_contact_content(category_name) {
+    scroll_contact();
     if( is_contact_content_hidden() ) {
         show_contact_content(category_name);
     } else {
@@ -76,11 +79,43 @@ function toogle_contact_content(category_name) {
         } else {
             show_contact_arrow(category_name);
             set_contact_content(category_name);
+            if(current_contact == "maps") {
+               displayMap();
+                console.debug('Maps is Initializing...');
+            }
         }
     }
 }
 
 
+
+
+
+
+function displayMap() {
+    initialize();
+}
+
+
+function initialize() {
+
+  var myLatlng = new google.maps.LatLng(43.604482, 1.443962);
+
+  var mapOptions = {
+    zoom: 4,
+    center: myLatlng
+  };
+
+  var map = new google.maps.Map(document.getElementById('map-canvas'),
+      mapOptions);
+
+    var marker = new google.maps.Marker({
+        position: myLatlng,
+        title:"iGLou Studio!"
+    });
+
+    marker.setMap(map);
+}
 
 
 function scroll_contact() {

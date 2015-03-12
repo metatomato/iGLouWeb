@@ -188,6 +188,20 @@
     float: none;
 }
 
+.featurette h3 {
+    color: white;
+    background-color: #00d8ff;
+    font-weight: bold;
+    padding: 5px 10px;
+    box-shadow: 0px 2px 5px -1px black;
+}
+
+
+
+.featurette p {
+   padding: 0 10px;
+}
+
 @media (max-width: 721px) {
   .parallax
   {

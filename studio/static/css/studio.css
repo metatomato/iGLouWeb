@@ -182,6 +182,12 @@
     margin-top: 50px;
 }
 
+.vcenter {
+    display: inline-block;
+    vertical-align: middle;
+    float: none;
+}
+
 @media (max-width: 721px) {
   .parallax
   {

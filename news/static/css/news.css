@@ -84,9 +84,10 @@ p, div {
 
 /* Thin out the marketing headings */
 .featurette-heading {
-  font-weight: 500;
-  line-height: 1;
+  /*font-weight: 500;*/
+  /*line-height: 1;*/
   letter-spacing: -1px;
+
 }
 
 .figure{
@@ -117,7 +118,7 @@ p, div {
   }
 
   .featurette-heading {
-    font-size: 50px;
+    font-size: 30px;
   }
 }
 

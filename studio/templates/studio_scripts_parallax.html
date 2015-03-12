@@ -27,7 +27,7 @@
     var OFF_3;
 
     function update_dimensions() {
-        O_y = $(".navbar-iGLou .container").offset().top;
+        O_y = $(".navbar-iGLou .container").offset().top + $(".navbar-iGLou .container").height();
     }
 
     function init_dimensions() {
@@ -40,11 +40,11 @@
 
 
 
-        y_i_1 = $(".first_parallax").offset().top - O_Y;
+        y_i_1 = $(".first_parallax").offset().top;
         Y_1   = $(".first_parallax").height();
         if(y_i_1 < H) {
             L_1   = Y_1 + H - ( H - y_i_1);
-            console.debug("parallax is initially onscreen!" + (H - y_i_1));
+            //console.debug("parallax is initially onscreen!" + (H - y_i_1));
         } else {
             L_1   = H + Y_1;
         }
@@ -54,23 +54,23 @@
 
 
 
-        y_i_2 = $(".second_parallax").offset().top - O_Y;
+        y_i_2 = $(".second_parallax").offset().top;
         Y_2   = $(".second_parallax").height();
         if(y_i_2 < H) {
             L_2   = Y_2 + H - ( H - y_i_2);
-            console.debug("parallax is initially onscreen!" + (H - y_i_2));
+            console.debug("second parallax is initially onscreen!" + (H - y_i_2));
         } else {
             L_2   = H + Y_2;
         }
         I_2   = $(".second_parallax img").height();
-        OFF_2 =  500;
+        OFF_2 =  0;
         OVF_2  = I_2 + OFF_2 - Y_2;
 
 
 
         $(".third_parallax").css("height", W / 3.2 );
 
-        y_i_3 = $(".third_parallax").offset().top - O_Y;
+        y_i_3 = $(".third_parallax").offset().top;
         Y_3   = $(".third_parallax").height();
         if(y_i_3 < H) {
             L_3   = Y_3 + H - ( H - y_i_3);
@@ -91,13 +91,13 @@
 
         console.debug("origin: " + O_y);
         console.debug("screen W: " + W + "   H: " + H);
-        console.debug("parallax height: " + Y_1);
-        console.debug("parallax scroll length: " + L_1);
-        console.debug("parallax image height: " + I_1);
-        console.debug("parallax image overflow: " + OVF_1);
-        console.debug("parallax image offset: " + OFF_1);
+        console.debug("parallax height: " + Y_2);
+        console.debug("parallax scroll length: " + L_2);
+        console.debug("parallax image height: " + I_2);
+        console.debug("parallax image overflow: " + OVF_2);
+        console.debug("parallax image offset: " + OFF_2);
 
-        console.debug("parallax init pos: " + y_i_1);
+        console.debug("parallax init pos: " + y_i_2);
     });
 
     $(window).scroll(
@@ -105,6 +105,7 @@
             update_dimensions();
 
             var dY_1 = 0;
+            y_i_1 = $(".first_parallax").offset().top;
             var y_1 = y_i_1 - O_y;
             var is_y_1_onscreen = false;
 
@@ -138,9 +139,10 @@
 
 
             var dY_2 = 0;
+            y_i_2 = $(".second_parallax").offset().top;
             var y_2 = y_i_2 - O_y;
             var is_y_2_onscreen = false;
-
+            console.debug("PARALLAX 3 " + y_2 + " H:" + H + " O_y:" + O_y);
             if(y_2 > 0) {
                 if( y_2 < H ) {
                     is_y_2_onscreen = true;
@@ -158,13 +160,13 @@
 
             if( is_y_2_onscreen ) {
                 if(y_i_2 < H) {
-                    var ratio = (y_i_2 - y_2) / L_2;
+                    var ratio_2 = (y_i_2 - y_2) / L_2;
                 } else {
-                    var ratio = (H - y_2) / L_2;
+                    var ratio_2 = (H - y_2) / L_2;
                 }
-                dY_2 = -1 * ratio * OVF_2 + OFF_2 / 2;
+                dY_2 = -1 * ratio_2 * OVF_2 + OFF_2 / 2;
                 $(".second_parallax img").css("margin-top",dY_2);
-
+              //  console.debug("ratio " + (ratio_2*100) );
 
             }
 
@@ -173,6 +175,7 @@
 
 
             var dY_3 = 0;
+            y_i_3 = $(".third_parallax").offset().top;
             var y_3 = y_i_3 - O_y;
             var is_y_3_onscreen = false;
 
@@ -181,13 +184,13 @@
                     is_y_3_onscreen = true;
                 }
                 else {
-                    console.debug("ONE IS OUT! ");
+                   // console.debug("ONE IS OUT! ");
                 }
             } else {
                 if( (y_3 + Y_3) > 0) {
                     is_y_3_onscreen = true;
                 } else {
-                    console.debug("ONE IS OUT! ");
+                  //  console.debug("ONE IS OUT! ");
                 }
             }
 
@@ -199,7 +202,7 @@
                 }
                 dY_3 = -1 * OVF_3 + 1.2 * ratio * OVF_3;
                 $(".third_parallax img").css("margin-top",dY_3);
-                console.debug("ratio " + (ratio*100) + "     pos " + y_3);
+              //  console.debug("ratio " + (ratio*100) + "     pos " + y_3);
             }
         }
     );

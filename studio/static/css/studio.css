@@ -193,13 +193,17 @@
     background-color: #00d8ff;
     font-weight: bold;
     padding: 5px 10px;
-    box-shadow: 0px 2px 5px -1px black;
+    box-shadow: 0px 4px 4px -3px black inset;
 }
-
-
 
 .featurette p {
    padding: 0 10px;
+   /*display: inline;*/
+   text-indent: 0;
+}
+
+.featurette ul {
+  list-style-type:none;
 }
 
 @media (max-width: 721px) {

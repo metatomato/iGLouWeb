@@ -3,8 +3,8 @@ from fabric.api import env, local, run
 import random
 
 
-REPO_URL = 'https://github.com/metatomato/iGLouWeb.git'
-SERVER_REPO = 'SITES/tomato-studio.ddns.net'
+REPO_URL = 'https://www.github.com/metatomato/iGLouWeb.git'
+SERVER_REPO = 'SITES/iglou.gl'
 DJANGO_PROJECT = 'iGLouWeb'
 
 def deploy():

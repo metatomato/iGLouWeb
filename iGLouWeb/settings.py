@@ -24,7 +24,7 @@ DEBUG = True
 
 TEMPLATE_DEBUG = DEBUG
 
-ALLOWED_HOSTS = ['tomato-studio.ddns.net']
+ALLOWED_HOSTS = ['iglou.gl']
 
 #global templates files
 TEMPLATE_DIRS = (

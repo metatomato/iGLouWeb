@@ -251,7 +251,7 @@ p, div {
 
 .sidebar-nav li {
     text-indent: 20px;
-    line-height: 40px;
+    padding-left: 15px;
 }
 
 .sidebar-nav li a {
@@ -262,7 +262,7 @@ p, div {
 
 .sidebar-nav li a:hover {
     text-decoration: none;
-    color: #fff;
+    color: #00d8ff;
     background: rgba(255,255,255,0.2);
 }
 
@@ -272,7 +272,7 @@ p, div {
 }
 
 .sidebar-nav > .sidebar-brand {
-    height: 65px;
+    height: 60px;
     font-size: 18px;
     line-height: 60px;
 }
@@ -282,10 +282,34 @@ p, div {
 }
 
 .sidebar-nav > .sidebar-brand a:hover {
-    color: #fff;
+    color: #00d8ff;
     background: none;
 }
 
+#sidebar-iglou {
+ background-image:url("../img/bullet_iglou.png");
+ background-repeat: no-repeat;
+ background-size: 24px, auto;
+ background-position: 5px center;
+}
+
+#sidebar-blog {
+ background-image:url("../img/bullet_blog.png");
+ background-repeat: no-repeat;
+ background-size: 24px, auto;
+ background-position: 5px center;
+}
+
+#sidebar-forges {
+ background-image:url("../img/bullet_forges.png");
+ background-repeat: no-repeat;
+ background-size: 24px, auto;
+ background-position: 5px center;
+}
+
+#sidebar-forges:hover {
+background-image:url("../img/bullet_blog.png");
+}
 
 #wrapper {
     padding-left: 180px;

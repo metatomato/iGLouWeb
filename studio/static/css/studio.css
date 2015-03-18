@@ -203,7 +203,8 @@
 }
 
 .featurette ul {
-  list-style-type:none;
+  /*list-style-type:none;*/
+  list-style-image: url('../img/bullet_iglou_25.png');
 }
 
 @media (max-width: 721px) {

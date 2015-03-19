@@ -230,12 +230,12 @@
         console.debug("parallax init pos: " + y_i_2);
 }
 
-    $( document ).ready(function() {
-        console.log( "ready!" );
-        setTimeout(function(){
-            init_parallax();
-            console.log( "Dimension updated!" );
-        }, 100);
+    $( window ).load(function() {
+        console.log( "window ready!" );
+
+        init_parallax();
+        console.log( "Dimension updated!" );
+
 
     });
 

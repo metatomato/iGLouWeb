@@ -210,10 +210,7 @@
     );
 
 
- $(function() {
-
-        init_dimensions();
-
+ function print_info() {
         console.debug("origin: " + O_y);
         console.debug("screen W: " + W + "   H: " + H);
         console.debug("parallax height: " + Y_2);
@@ -223,10 +220,10 @@
         console.debug("parallax image offset: " + OFF_2);
 
         console.debug("parallax init pos: " + y_i_2);
-    });
+}
 
     $( document ).ready(function() {
-        update_parallax();
+       $(window).resize();
         console.log( "ready!" );
     });
 

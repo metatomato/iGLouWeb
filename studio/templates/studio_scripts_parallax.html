@@ -49,7 +49,7 @@
             L_1   = H + Y_1;
         }
         I_1   = $(".first_parallax img").height();
-        OFF_1 =  1000;
+        OFF_1 =  0;
         OVF_1  = I_1 + OFF_1 - Y_1;
 
 
@@ -82,23 +82,6 @@
         OFF_3 =  0;
         OVF_3  = I_3 + OFF_3 - Y_3;
     };
-
-
-
-    $(function() {
-
-        init_dimensions();
-
-        console.debug("origin: " + O_y);
-        console.debug("screen W: " + W + "   H: " + H);
-        console.debug("parallax height: " + Y_2);
-        console.debug("parallax scroll length: " + L_2);
-        console.debug("parallax image height: " + I_2);
-        console.debug("parallax image overflow: " + OVF_2);
-        console.debug("parallax image offset: " + OFF_2);
-
-        console.debug("parallax init pos: " + y_i_2);
-    });
 
 
     function parallax_one() {
@@ -222,12 +205,27 @@
         function() {
             console.log('I\'m resing!');
             init_dimensions();
+            update_parallax();
         }
     );
 
 
-    $( document ).ready(function() {
+ $(function() {
+
         init_dimensions();
+
+        console.debug("origin: " + O_y);
+        console.debug("screen W: " + W + "   H: " + H);
+        console.debug("parallax height: " + Y_2);
+        console.debug("parallax scroll length: " + L_2);
+        console.debug("parallax image height: " + I_2);
+        console.debug("parallax image overflow: " + OVF_2);
+        console.debug("parallax image offset: " + OFF_2);
+
+        console.debug("parallax init pos: " + y_i_2);
+    });
+
+    $( document ).ready(function() {
         update_parallax();
         console.log( "ready!" );
     });

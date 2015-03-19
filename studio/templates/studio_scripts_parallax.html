@@ -190,7 +190,6 @@
         }
     }
 
-
     function update_parallax() {
         update_dimensions();
         parallax_one();
@@ -198,6 +197,12 @@
         parallax_three();
     }
 
+
+    function init_parallax() {
+        init_dimensions();
+        print_info();
+        update_parallax();
+    }
 
     $( window ).scroll(
         function() {
@@ -208,8 +213,7 @@
     $( window ).resize(
         function() {
             console.log('I\'m resing!');
-            init_dimensions();
-            update_parallax();
+            init_parallax();
         }
     );
 
@@ -227,8 +231,12 @@
 }
 
     $( document ).ready(function() {
-       $(window).resize();
         console.log( "ready!" );
+        setTimeout(function(){
+            init_parallax();
+            console.log( "Dimension updated!" );
+        }, 100);
+
     });
 
 </script>

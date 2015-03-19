@@ -251,11 +251,12 @@ p, div {
 
 .sidebar-nav li {
     text-indent: 20px;
-    padding-left: 15px;
+
 }
 
 .sidebar-nav li a {
     display: block;
+    padding-left: 15px;
     text-decoration: none;
     color: #999999;
 }
@@ -263,7 +264,7 @@ p, div {
 .sidebar-nav li a:hover {
     text-decoration: none;
     color: #00d8ff;
-    background: rgba(255,255,255,0.2);
+
 }
 
 .sidebar-nav li a:active,

@@ -1,5 +1,7 @@
 <script type="text/javascript">
 
+    var is_scrolling = false;
+
     var O_Y;
     var O_y;
     var H;
@@ -158,6 +160,7 @@
 
 
     function parallax_three() {
+        var parallax_3 = $(".third_parallax");
         var dY_3 = 0;
         y_i_3 = $(".third_parallax").offset().top;
         var y_3 = y_i_3 - O_y;
@@ -185,10 +188,12 @@
                 var ratio = (H - y_3) / L_3;
             }
             dY_3 = -1 * OVF_3 + 1.2 * ratio * OVF_3;
+            dY_3 = +dY_3.toFixed(2);
             $(".third_parallax img").css("margin-top",dY_3);
-            console.debug("ratio " + (ratio*100) + "     pos " + y_3);
+           // console.debug("ratio " + (ratio*100) + "     pos " + dY_3);
         }
     }
+
 
     function update_parallax() {
         update_dimensions();
@@ -204,11 +209,20 @@
         update_parallax();
     }
 
+    function animate_parallax() {
+        window.requestAnimationFrame(update_parallax);
+        //console.log('Animating!!');
+    }
+
     $( window ).scroll(
         function() {
-            update_parallax();
+
         }
     );
+
+    var timer_id = setInterval(function(){ animate_parallax() }, 10);
+
+
 
     $( window ).resize(
         function() {

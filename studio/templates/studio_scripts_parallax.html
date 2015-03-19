@@ -118,7 +118,12 @@
                     var ratio = (H - y_1) / L_1;
                 }
                 dY_1 = -1 * ratio * OVF_1 + OFF_1 / 2;
-                $(".first_parallax img").css("margin-top",dY_1);
+                //$(".first_parallax img").css("margin-top",dY_1);
+                $(".first_parallax img").css({
+                '-moz-transform' : 'translate(0,' + dY_1 +  'px)',
+                '-webkit-transform' : 'translate(0,' + dY_1 +  'px)',
+                'transform' : 'translate(0,' + dY_1 +  'px)'
+                });
                 //console.debug("ratio " + (ratio*100) + "     pos " + y_1);
             }
     }
@@ -152,7 +157,12 @@
                 var ratio_2 = (H - y_2) / L_2;
             }
             dY_2 = -1 * ratio_2 * OVF_2 + OFF_2 / 2;
-            $(".second_parallax img").css("margin-top",dY_2);
+            //$(".second_parallax img").css("margin-top",dY_2);
+            $(".second_parallax img").css({
+                '-moz-transform' : 'translate(0,' + dY_2 +  'px)',
+                '-webkit-transform' : 'translate(0,' + dY_2 +  'px)',
+                'transform' : 'translate(0,' + dY_2 +  'px)'
+            });
           //  console.debug("ratio " + (ratio_2*100) );
 
         }
@@ -189,7 +199,13 @@
             }
             dY_3 = -1 * OVF_3 + 1.2 * ratio * OVF_3;
             dY_3 = +dY_3.toFixed(2);
-            $(".third_parallax img").css("margin-top",dY_3);
+            //$(".third_parallax img").css("margin-top",dY_3);
+            $(".third_parallax img").css({
+                '-moz-transform' : 'translate(0,' + dY_3 +  'px)',
+                '-webkit-transform' : 'translate(0,' + dY_3 +  'px)',
+                'transform' : 'translate(0,' + dY_3 +  'px)'
+            });
+
            // console.debug("ratio " + (ratio*100) + "     pos " + dY_3);
         }
     }
@@ -209,20 +225,14 @@
         update_parallax();
     }
 
-    function animate_parallax() {
-        window.requestAnimationFrame(update_parallax);
-        //console.log('Animating!!');
-    }
 
     $( window ).scroll(
         function() {
-
+            update_parallax()
         }
     );
 
-    var timer_id = setInterval(function(){ animate_parallax() }, 10);
-
-
+   // var timer_id = setInterval(function(){ update_parallax() }, 30);
 
     $( window ).resize(
         function() {

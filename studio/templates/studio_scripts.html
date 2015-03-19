@@ -34,6 +34,14 @@ function get_services_content(category_name) {
     return "#" + category_name + "_content";
 }
 
+function get_services_button(category_name) {
+    return "#" + category_name + "_btn";
+}
+
+function set_current_service(category) {
+    current_services = category;
+}
+
 function clear_arrow() {
     //$(".arrow").css("display",none);
     for(i = 0 ; i < services_cat.length ; i++) {
@@ -129,23 +137,37 @@ $("#btn_close_services").click(
     }
 );
 
+
+function toggle_button(category) {
+    var button = $(get_services_button(category));
+    if(current_services == category) {
+        button.attr('src','static/img/icon_' + category + '_pushed.png');
+    }else {
+        button.attr('src','static/img/icon_' + category + '.png');
+    }
+
+}
+
 $("#android_btn").click(
     function(){
+        set_current_service("android"),
         close_first_parallax(toogle_content,"android");
-        //toogle_content("android");
+        setTimeout(function(){ toggle_button("android"); }, 500);
     }
 );
 
 $("#rtr_btn").click(
     function(){
+        set_current_service("rtr"),
         close_first_parallax(toogle_content,"rtr");
-        //toogle_content("rtr");
+        setTimeout(function(){ toggle_button("rtr"); }, 500);
     }
 );
 
 $("#cloud_btn").click(
     function(){
         close_first_parallax(toogle_content,"cloud");
+        toggle_button("cloud");
         //toogle_content("cloud");
     }
 );
@@ -153,8 +175,72 @@ $("#cloud_btn").click(
 $("#consulting_btn").click(
     function(){
         close_first_parallax(toogle_content,"consulting");
+        toggle_button("consulting");
         //toogle_content("consulting");
     }
 );
 
+
+function onButtonHover(category, handlerin) {
+    var button = $(get_services_button(category));
+    if(current_services != category && handlerin) {
+        button.attr('src','static/img/icon_' + category + '_over.png');
+    }
+    if(current_services != category && !handlerin) {
+        button.attr('src','static/img/icon_' + category + '.png');
+    }
+}
+
+
+$("#android_btn").hover(
+    function(){ onButtonHover("android",true); },
+    function(){ onButtonHover("android",false); }
+);
+
+$("#rtr_btn").hover(
+    function(){ onButtonHover("rtr",true); },
+    function(){ onButtonHover("rtr",false); }
+);
+
+$("#cloud_btn").hover(
+    function(){ onButtonHover("cloud",true); },
+    function(){ onButtonHover("cloud",false); }
+);
+
+$("#consulting_btn").hover(
+    function(){ onButtonHover("consulting",true); },
+    function(){ onButtonHover("consulting",false); }
+);
+
 </script>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

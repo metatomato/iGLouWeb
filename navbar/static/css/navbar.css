@@ -287,28 +287,36 @@ p, div {
 }
 
 #sidebar-iglou {
- background-image:url("../img/bullet_iglou.png");
+ background-image:url("../img/bullet_iglou_64.png");
  background-repeat: no-repeat;
- background-size: 24px, auto;
+ background-size: 18px auto;
  background-position: 5px center;
 }
 
 #sidebar-blog {
- background-image:url("../img/bullet_blog.png");
+ background-image:url("../img/bullet_blog_64.png");
  background-repeat: no-repeat;
- background-size: 24px, auto;
+ background-size: 18px auto ;
  background-position: 5px center;
 }
 
 #sidebar-forges {
- background-image:url("../img/bullet_forges.png");
+ background-image:url("../img/bullet_forges_64.png");
  background-repeat: no-repeat;
- background-size: 24px, auto;
+ background-size: 18px auto ;
  background-position: 5px center;
 }
 
+#sidebar-iglou:hover {
+background-image:url("../img/bullet_iglou_light_64.png");
+}
+
 #sidebar-forges:hover {
-background-image:url("../img/bullet_blog.png");
+background-image:url("../img/bullet_forges_light_64.png");
+}
+
+#sidebar-blog:hover {
+background-image:url("../img/bullet_blog_light_64.png");
 }
 
 #wrapper {

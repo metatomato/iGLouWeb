@@ -1,8 +1,12 @@
 <script type="text/javascript">
     $(function () {
         $('li>a').click(function(){
-             var pos = $($(this).attr('href')).offset().top;
-             $('body, html').animate({scrollTop:pos}, 500);
+             if($(this).attr('href') == "#contact") {
+                gotoContact();
+             } else {
+                var pos = $($(this).attr('href')).offset().top;
+                $('body, html').animate({scrollTop:pos}, 500);
+             }
           })
     });
 

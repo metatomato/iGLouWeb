@@ -43,7 +43,7 @@ def view_studio_includes():
 def view_studio_scripts():
     content = get_navbar_scripts()
     content += get_studio_body_scripts()
-    # content += get_news_scripts()
+    content += get_news_scripts()
     return content
 
 
@@ -60,11 +60,9 @@ def get_studio_body_content():
 def get_studio_body_scripts():
     content_services = render_to_string('studio_scripts.html')
     content_framework = render_to_string('studio_scripts_framework.html')
-    content_about = render_to_string('studio_scripts_about.html')
     content_parallax = render_to_string('studio_scripts_parallax.html')
     content_maps = render_to_string('studio_scripts_maps.html')
-    content_contact = render_to_string('studio_scripts_contact.html')
-    content = content_services + content_framework + content_about + content_parallax + content_maps + content_contact
+    content = content_services + content_framework + content_parallax + content_maps
 
     return content
 

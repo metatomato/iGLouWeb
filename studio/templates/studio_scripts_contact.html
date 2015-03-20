@@ -92,30 +92,7 @@ function toogle_contact_content(category_name) {
 
 
 
-function displayMap() {
-    initialize();
-}
 
-
-function initialize() {
-
-  var myLatlng = new google.maps.LatLng(43.604482, 1.443962);
-
-  var mapOptions = {
-    zoom: 4,
-    center: myLatlng
-  };
-
-  var map = new google.maps.Map(document.getElementById('map-canvas'),
-      mapOptions);
-
-    var marker = new google.maps.Marker({
-        position: myLatlng,
-        title:"iGLou Studio!"
-    });
-
-    marker.setMap(map);
-}
 
 
 function scroll_contact() {

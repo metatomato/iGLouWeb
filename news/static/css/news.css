@@ -1,10 +1,12 @@
 /* CUSTOMIZE THE CAROUSEL
 -------------------------------------------------- */
 h1, h2, h3, h4, h5, h6 {
-    font-family: 'Ubuntu Light', sans-serif;
+    font-family: 'Ubuntu', sans-serif;
+    font-weight: 300;
 }
 p, div {
-    font-family: 'Ubuntu Light', sans-serif;
+    font-family: 'Ubuntu', sans-serif;
+    font-weight: 300;
 }
 
 .iGLou_blue {
@@ -45,6 +47,7 @@ p, div {
     right: 0%;
     text-align: left;
     text-shadow: none;
+    font-weight: 300;
     z-index: 10;
 }
 

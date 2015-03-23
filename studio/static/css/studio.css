@@ -207,6 +207,12 @@
   list-style-image: url('../img/bullet_iglou_16.png');
 }
 
+.featurette h3.content {
+   font-weight: 300;
+   text-align:center;
+}
+
+
 .btn_close {
   margin:50px 0;
 }

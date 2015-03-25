@@ -13,7 +13,7 @@ def view_home(request):
                                          "body_footer": view_studio_body_footer(),
                                          "includes_content": view_studio_includes(),
                                          "scripts_content": view_studio_scripts()
-    })
+                                        })
 
 
 def view_studio_body_header():

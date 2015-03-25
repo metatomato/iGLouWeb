@@ -42,7 +42,8 @@ INSTALLED_APPS = (
     'django.contrib.staticfiles',
     'studio',
     'navbar',
-    'news'
+    'news',
+    'globe'
 )
 
 MIDDLEWARE_CLASSES = (

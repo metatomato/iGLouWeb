@@ -1,0 +1,16 @@
+.globe_container{
+   height: 1500px;
+   width: 100%;
+   background-color: #222;
+}
+
+#globe_title {
+ background-image:url("../img/globe.png");
+ background-repeat: no-repeat;
+ background-position: center center;
+ height:768px;
+}
+
+#coming_soon {
+  position: absolute;
+}

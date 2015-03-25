@@ -36,4 +36,22 @@
 
     $('.navbar-toggle').on('hidden.bs.collapse', function() { window.alert('hidden'); });
 
+    $('#sitebar-site').hover(
+    function(){
+        $('#sitebar-site .separator').css("background-color","#00d8ff");
+    },
+    function(){
+        $('#sitebar-site .separator').css("background-color","#d5d5d5");
+    }
+    );
+
+    $('#sitebar-apps').hover(
+    function(){
+        $('#sitebar-apps .separator').css("background-color","#00d8ff");
+    },
+    function(){
+        $('#sitebar-apps .separator').css("background-color","#d5d5d5");
+    }
+    );
+
 </script>

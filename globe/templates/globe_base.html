@@ -1,0 +1,22 @@
+{% extends 'base_app.html' %}
+
+
+{% block static_includes %}
+    {{ includes_content }}
+{% endblock %}
+
+{% block body_html %}
+    <body data-spy="scroll"  data-offset="60"  data-target=".navbar">
+        {{ body_header }}
+
+        {{ body_content }}
+
+        {{ body_footer }}
+    </body>
+{% endblock %}
+
+{% block scripts%}
+
+    {{ scripts_content }}
+</script>
+{% endblock%}

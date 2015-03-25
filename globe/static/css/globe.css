@@ -1,5 +1,16 @@
+
+globe_container h1, h2, h3, h4, h5, h6 {
+    font-family: 'Ubuntu', sans-serif;
+}
+globe_container p, div, td {
+    font-family: 'Ubuntu', sans-serif;
+    color: #d5d5d5;
+    font-weight:300;
+    line-height: 1.4;
+    font-size: 21px;
+}
+
 .globe_container{
-   height: 1500px;
    width: 100%;
    background-color: #222;
 }
@@ -8,9 +19,27 @@
  background-image:url("../img/globe.png");
  background-repeat: no-repeat;
  background-position: center center;
- height:768px;
+ background-size: auto 500px;
+ height:700px;
 }
 
 #coming_soon {
-  position: absolute;
+  position:fixed;
+  z-index:3000;
+}
+
+.subtitle td {
+   font-size: 32px;
+}
+
+.sms-left {
+ text-align: center;
+ background-color: #00d8ff;
+ color: #444;
+}
+
+.sms-right {
+ text-align: center;
+ background-color: #ff3d00;
+ color: #444;
 }

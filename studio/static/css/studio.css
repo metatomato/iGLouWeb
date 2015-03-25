@@ -60,9 +60,6 @@
 }
 
 
-#services_content {
-
-}
 
 .subcard {
    position: relative; z-index:1;
@@ -217,6 +214,10 @@
   margin:50px 0;
 }
 
+
+
+/* RESPONSIVE CSS
+-------------------------------------------------- */
 
 @media (max-width: 721px) {
   .parallax

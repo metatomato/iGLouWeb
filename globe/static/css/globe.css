@@ -15,6 +15,10 @@ globe_container p, div, td {
    background-color: #222;
 }
 
+.globe_container .row {
+  margin-top: 150px;
+}
+
 #globe_title {
  background-image:url("../img/globe.png");
  background-repeat: no-repeat;
@@ -29,7 +33,7 @@ globe_container p, div, td {
 }
 
 .subtitle td {
-   font-size: 32px;
+   font-size: 26px;
 }
 
 .sms-left {
@@ -43,3 +47,95 @@ globe_container p, div, td {
  background-color: #ff3d00;
  color: #444;
 }
+
+.vcenter {
+    display: inline-block;
+    vertical-align: middle;
+    float: none;
+}
+
+#discover_content p{
+ font-size: 18px;
+}
+
+.image_viewer {
+    display:none;
+    position: fixed;
+    top: 50%;
+    left: 50%;
+    margin-left: 0px;
+
+
+}
+
+.image_viewer img{
+  position:relative;
+  z-index:1000;
+
+}
+
+.left-controller {
+ position:absolute;
+ left:10%;
+ top:50%;
+ z-index:1100;
+}
+
+.right-controller {
+ position:absolute;
+ right:10%;
+ top:50%;
+ z-index:1100;
+}
+
+.close-controller {
+ position:absolute;
+ right:-5%;
+ top:-5%;
+ z-index:1100;
+}
+
+.left-controller:hover, .right-controller:hover, .close-controller:hover {
+    cursor: pointer
+}
+
+.right-controller:hover {
+    cursor: pointer
+}
+
+#back_panel {
+  z-index:1;
+  position:absolute;
+  top:-2.5%;
+  left:-2.5%;
+  width:105%;
+  height:105%;
+  background-color:#111;
+  opacity: 0.7;
+}
+
+.glyphicon-chevron-left, .glyphicon-chevron-right, .glyphicon-remove-sign{
+ font-size:40px;
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

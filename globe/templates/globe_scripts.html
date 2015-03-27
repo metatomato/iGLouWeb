@@ -59,11 +59,12 @@
 
     function calcViewerDim() {
 
+        var navbar_offset = 50;
         var img_h = $('.image_viewer img').get(0).naturalHeight;
         var img_w = $('.image_viewer img').get(0).naturalWidth;
         console.log('h ' + img_h + ' w ' + img_w );
 
-        var H = $(window).height();
+        var H = $(window).height() - navbar_offset;
         var W = $(window).width();
 
         var h,w,margin;
@@ -73,7 +74,7 @@
          w = W * ratio ;
 
         margin_left = Math.round(w/2);
-        margin_top = Math.round(h/2);
+        margin_top = Math.round(h/2 - navbar_offset/2);
 
         $('.image_viewer').css({
             "height": h + "px",

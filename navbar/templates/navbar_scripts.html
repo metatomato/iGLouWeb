@@ -4,8 +4,11 @@
              if($(this).attr('href') == "#contact") {
                 gotoContact();
              } else {
-                var pos = $($(this).attr('href')).offset().top;
-                $('body, html').animate({scrollTop:pos}, 500);
+                var ref = $(this).attr('href');
+                if( ref != "#"){
+                    var pos = $(ref).offset().top;
+                    $('body, html').animate({scrollTop:pos}, 500);
+                }
              }
           })
     });

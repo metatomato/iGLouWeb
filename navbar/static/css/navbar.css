@@ -80,6 +80,7 @@ p, div {
 
 .navbar-iGLou .navbar-nav > li > a {
   color: #777;
+  font-size: 14px;
 }
 .navbar-iGLou .navbar-nav > li > a:hover,
 .navbar-iGLou .navbar-nav > li > a:focus {
@@ -121,7 +122,7 @@ p, div {
   display: block;
   padding: 3px 20px;
   clear: both;
-  font-weight: normal;
+  font-weight: 300;
   line-height: 3;
   /*line-height: 1.42857143;*/
   color: #333;

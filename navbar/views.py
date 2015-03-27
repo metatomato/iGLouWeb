@@ -6,8 +6,8 @@ def view_navbar(request):
     return render(request,'navbar.html')
 
 
-def get_navbar_body():
-    return render_to_string('navbar_body.html')
+def get_navbar_body(links):
+    return render_to_string('navbar_body.html',{'links':links})
 
 
 def get_navbar_body_tag():

@@ -3,6 +3,7 @@ from django.template.loader import render_to_string
 from navbar.views import view_navbar, get_navbar_body, get_navbar_body_tag, get_navbar_includes, get_navbar_scripts
 from news.views import get_news_body, get_news_includes, get_news_scripts
 from globe.views import get_globe_body, get_globe_scripts, get_globe_includes
+from studio.studio_request import get_script_request
 
 # Create your views here.
 
@@ -13,7 +14,7 @@ def view_home(request):
                                          "body_content": view_studio_body_content(),
                                          "body_footer": view_studio_body_footer(),
                                          "includes_content": view_studio_includes(),
-                                         "scripts_content": view_studio_scripts()
+                                         "scripts_content": view_studio_scripts(request)
                                         })
 
 
@@ -36,7 +37,8 @@ def view_studio_body_header():
              'framework',
              'about',
              'contact']
-    content = get_navbar_body(links)
+    contact = '#contact'
+    content = get_navbar_body(links, contact)
     content += get_studio_body_header()
     return content
 
@@ -59,10 +61,15 @@ def view_studio_includes():
     return content
 
 
-def view_studio_scripts():
+def view_studio_scripts(request):
     content = get_navbar_scripts()
     content += get_studio_body_scripts()
+    if request.method == 'GET':
+        if 'request' in request.GET:
+            print(get_script_request(request.GET['request']))
+            content += get_script_request(request.GET['request'])
     content += get_news_scripts()
+
     return content
 
 
@@ -77,7 +84,8 @@ def view_globe_body_header():
              'arcade',
              'discover',
              'preview']
-    content = get_navbar_body(links)
+    contact = '/?request=contact'
+    content = get_navbar_body(links, contact)
     content += get_studio_body_header()
     return content
 

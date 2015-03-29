@@ -21,7 +21,7 @@ $( "#sidebar-wrapper" ).hover(
 function gotoContact() {
     console.log("GoTO contact!!");
     var pos = $("#contact").offset().top;
-    $('body, html').animate({scrollTop:pos}, 500);
+    $('body, html').animate({scrollTop:pos}, 1000);
     setTimeout(function() {
         if(contact_inst.currentCat != "mail"){
             $("#mail_btn").click();

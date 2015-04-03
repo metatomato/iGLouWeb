@@ -1,4 +1,6 @@
 <script type="text/javascript">
+    var current_section = '';
+
     $(function () {
         $('li>a').click(function(){
              if($(this).attr('href') == "#contact") {
@@ -14,8 +16,18 @@
     });
 
     $('#main_menu').on('activate.bs.scrollspy', function () {
-        var currentItem = $(".dropdown-menu li.active > a").text();
-        $("#navigator").empty().html(currentItem);
+        current_section = $(".dropdown-menu li.active > a").attr('href');
+        var current_text = $(".dropdown-menu li.active > a").text();
+        $("#navigator").empty().html(current_text);
+        var list = getList();
+
+        if(current_section == list[list.length - 1 ]) {
+            setArrowUp();
+            console.log('current on ' + list[list.length - 1 ] + ' ' + current_section);
+        }
+        if(current_section == list[0]) {
+            setArrowDown();
+        }
     });
 
 

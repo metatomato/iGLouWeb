@@ -18,6 +18,36 @@ $( "#sidebar-wrapper" ).hover(
 // NAVIGATION
 /////////////////////////////////////////////////////////////////////////////////////////
 
+function getList() {
+  var list_obj = $(".dropdown-menu li > a");
+  var list_section = new Array();
+
+  jQuery.each( list_obj, function( i, val ) {
+        list_section[i] = $(this).attr('href');
+    });
+    return list_section;
+}
+
+function gotoSection(section, withScrolling, withOpening) {
+    var pos = $(section).offset().top;
+    if( pos != 0) {
+        pos -= 49;
+    }
+    if(withScrolling) {
+        $('body, html').animate({scrollTop:pos}, 1000);
+        if(section == '#contact' && withOpening)
+        {
+            setTimeout(function() {
+                if(contact_inst.currentCat != "mail"){
+                    $("#mail_btn").click();
+                }
+            },500);
+        }
+    } else {
+        $('body, html').animate({scrollTop:pos}, 0);
+    }
+}
+
 function gotoContact() {
     console.log("GoTO contact!!");
     var pos = $("#contact").offset().top;
@@ -29,7 +59,74 @@ function gotoContact() {
     },500);
 }
 
+function getSectionIndex() {
+    var list = getList();
+    var idx = -1;
+    jQuery.each(list, function(key,value){
+        if(value == current_section){
+            console.log('current find at ' + key);
+            idx = key;
+        }
+    });
+    return idx;
+}
 
+function gotoNext() {
+    var list = getList();
+    var idx = getSectionIndex();
+    if(idx >= list.length - 1){
+        idx = 0;
+    } else {
+        idx += 1;
+    }
+    console.log('Next at: ' + idx);
+    gotoSection(list[idx], true, false);
+    return idx;
+}
+
+
+function toggleArrow() {
+    if(arrow_up) {
+            setArrowDown();
+        }else {
+            setArrowUp();
+        }
+}
+
+function setArrowUp() {
+    console.log('setArrowUp');
+    $('.navbar-arrow').css('background-image',"url('static/img/arrow_up.png')");
+    arrow_up = true;
+}
+
+
+function setArrowDown() {
+    $('.navbar-arrow').css('background-image',"url('static/img/arrow_down.png')");
+    arrow_up = false;
+}
+
+var arrow_up = false;
+
+$('.navbar-arrow').click(
+    function() {
+        var idx = gotoNext();
+    }
+);
+
+
+$('.navbar-arrow').hover(function(){
+        if(arrow_up) {
+            $(this).css('background-image',"url('static/img/arrow_up_over.png')");
+        }else {
+            $(this).css('background-image',"url('static/img/arrow_down_over.png')");
+        }
+    },function(){
+        if(arrow_up) {
+            $(this).css('background-image',"url('static/img/arrow_up.png')");
+        }else {
+            $(this).css('background-image',"url('static/img/arrow_down.png')");
+        }
+    });
 </script>
 
 

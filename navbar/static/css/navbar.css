@@ -150,6 +150,19 @@ p, div {
   color: #777;
 }
 
+.navbar-arrow {
+  position: fixed;
+  right: 2%;
+  bottom: 2%;
+  height: 100px;
+  width: 100px;
+  background-image: url("../img/arrow_down.png");
+  background-repeat: no-repeat;
+  background-position: center center;
+  	background-size: 100% 100%;
+  z-index: 4000;
+}
+
 
 /* RESPONSIVE CSS
 -------------------------------------------------- */

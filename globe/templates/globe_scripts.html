@@ -1,5 +1,7 @@
 <script type="text/javascript">
 
+    var navbar_offset = 50;
+
     var img_data = new Array();
 
     $(function(){
@@ -9,12 +11,14 @@
             img_data[i] = jQuery("img", img_table[i]).attr('src');
             console.log(img_data[i]);
         }
+        setSectionDim();
     });
 
 
     function getSrc() {
         return $('.image_viewer img').attr('src');
     }
+
 
     function getIndex(src) {
         var idx = -1;
@@ -29,6 +33,7 @@
         return idx;
     }
 
+
     function getNext() {
         var current_src = getSrc();
         var next = getIndex(current_src);
@@ -39,6 +44,7 @@
         }
         return next;
     }
+
 
     function getPrev() {
         var current_src = getSrc();
@@ -51,15 +57,16 @@
         return prev;
     }
 
+
     function print(idx) {
         var tag = "<img class='img-responsive center-block' src=' " + img_data[idx] + "' alt='Screenshot' style='opacity:1; height:100%;'>";
         $('.image_viewer img').replaceWith(tag);
         calcViewerDim();
     }
 
+
     function calcViewerDim() {
 
-        var navbar_offset = 50;
         var img_h = $('.image_viewer img').get(0).naturalHeight;
         var img_w = $('.image_viewer img').get(0).naturalWidth;
         console.log('h ' + img_h + ' w ' + img_w );
@@ -94,6 +101,22 @@
         $('.close-controller').css('right',offset_x + 'px');
         $('.close-controller').css('top',offset_y + 'px');
     }
+
+
+    function setSectionDim() {
+        var H = $(window).height() - navbar_offset;
+        var W = $(window).width();
+
+        var h = H + 'px';
+
+        $('.globe_section').each(function(key,value){
+            $(this).css('height', h);
+            $(this).find('.globe_dummy').css('height',h)
+        });
+
+        $('#globe_title').css('height',h);
+    }
+
 
     $('.img-clickable').click(function() {
         console.log("click detected!!");

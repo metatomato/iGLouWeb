@@ -3,6 +3,7 @@
 /* Padding below the footer and lighter body text */
 
 body {
+  height:100%;
   padding-bottom: 40px;
   padding-top: 50px;
   color: #5a5a5a;

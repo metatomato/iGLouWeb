@@ -16,7 +16,7 @@ globe_container p, div, td {
 }
 
 .globe_container .row {
-  margin-top: 150px;
+  /*margin-top: 150px;*/
 }
 
 #globe_title {
@@ -24,7 +24,6 @@ globe_container p, div, td {
  background-repeat: no-repeat;
  background-position: center center;
  background-size: auto 500px;
- height:700px;
 }
 
 #coming_soon {
@@ -118,8 +117,13 @@ globe_container p, div, td {
  font-size:40px;
 }
 
+.globe_section {
+  margin-top:50px;
+}
 
-
+.globe_dummy {
+  background-color:#ff3d00;
+}
 
 
 

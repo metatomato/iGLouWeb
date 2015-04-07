@@ -95,13 +95,13 @@ function toggleArrow() {
 
 function setArrowUp() {
     console.log('setArrowUp');
-    $('.navbar-arrow').css('background-image',"url('static/img/arrow_up.png')");
+    $('.navbar-arrow').css('background-image',"url('/static/img/arrow_up.png')");
     arrow_up = true;
 }
 
 
 function setArrowDown() {
-    $('.navbar-arrow').css('background-image',"url('static/img/arrow_down.png')");
+    $('.navbar-arrow').css('background-image',"url('/static/img/arrow_down.png')");
     arrow_up = false;
 }
 
@@ -116,15 +116,15 @@ $('.navbar-arrow').click(
 
 $('.navbar-arrow').hover(function(){
         if(arrow_up) {
-            $(this).css('background-image',"url('static/img/arrow_up_over.png')");
+            $(this).css('background-image',"url('/static/img/arrow_up_over.png')");
         }else {
-            $(this).css('background-image',"url('static/img/arrow_down_over.png')");
+            $(this).css('background-image',"url('/static/img/arrow_down_over.png')");
         }
     },function(){
         if(arrow_up) {
-            $(this).css('background-image',"url('static/img/arrow_up.png')");
+            $(this).css('background-image',"url('/static/img/arrow_up.png')");
         }else {
-            $(this).css('background-image',"url('static/img/arrow_down.png')");
+            $(this).css('background-image',"url('/static/img/arrow_down.png')");
         }
     });
 </script>

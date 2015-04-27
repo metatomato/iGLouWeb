@@ -325,6 +325,13 @@ p, div {
  background-position: 5px center;
 }
 
+#sidebar-globe {
+ background-image:url("../img/globe_gray_icon.png");
+ background-repeat: no-repeat;
+ background-size: 18px auto ;
+ background-position: 5px center;
+}
+
 #sidebar-iglou:hover {
 background-image:url("../img/bullet_iglou_light_64.png");
 }
@@ -335,6 +342,10 @@ background-image:url("../img/bullet_forges_light_64.png");
 
 #sidebar-blog:hover {
 background-image:url("../img/bullet_blog_light_64.png");
+}
+
+#sidebar-globe:hover {
+background-image:url("../img/globe_icon.png");
 }
 
 #wrapper {

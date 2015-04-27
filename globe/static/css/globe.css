@@ -20,7 +20,7 @@ globe_container p, div, td {
 }
 
 #globe_title {
- background-image:url("../img/globe.png");
+ background-image:url("../img/globe_logo.png");
  background-repeat: no-repeat;
  background-position: center center;
  background-size: auto 500px;
@@ -29,6 +29,13 @@ globe_container p, div, td {
 #coming_soon {
   position:fixed;
   z-index:3000;
+}
+
+#google_play_banner {
+  position:fixed;
+  z-index:3000;
+  margin-top:20px;
+
 }
 
 .subtitle td {

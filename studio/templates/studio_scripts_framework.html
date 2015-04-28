@@ -5,7 +5,7 @@
 /////////////////////////////////////////////////////////////////////////////////////////
 
 function get_image_tag() {
-    return "<img class='img-responsive center-block' src='static/img/arrow.png' alt='Selection arrow'\
+    return "<img class='img-responsive center-block' src='/static/img/arrow.png' alt='Selection arrow'\
      style='width: 256; height: 64px;'>";
 }
 
@@ -138,9 +138,9 @@ Section.prototype.scroll = function() {
 Section.prototype.toggleButton = function(category) {
     var button = $("#" + category + "_btn");
     if(this.currentCat == category) {
-        button.attr('src','static/img/icon_' + category + '_pushed.png');
+        button.attr('src','/static/img/icon_' + category + '_pushed.png');
     }else {
-        button.attr('src','static/img/icon_' + category + '.png');
+        button.attr('src','/static/img/icon_' + category + '.png');
     }
 }
 
@@ -159,10 +159,10 @@ Section.prototype.onClick = function(category) {
 Section.prototype.onButtonHover = function(category, handlerin) {
     var button = $("#" + category + "_btn");
     if(this.currentCat != category && handlerin) {
-        button.attr('src','static/img/icon_' + category + '_over.png');
+        button.attr('src','/static/img/icon_' + category + '_over.png');
     }
     if(this.requestCat != category && !handlerin) {
-        button.attr('src','static/img/icon_' + category + '.png');
+        button.attr('src','/static/img/icon_' + category + '.png');
     }
 }
 

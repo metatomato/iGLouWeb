@@ -5,15 +5,24 @@
         $('li>a').click(function(){
              if($(this).attr('href') == "#contact") {
                 gotoContact();
+                $('.dropdown').removeClass('open');
+                $('.dropdown>a').attr('aria-expanded','false');
+                return false;
              } else {
                 var ref = $(this).attr('href');
                 if( ref != "#"){
                     var pos = $(ref).offset().top;
                     $('body, html').animate({scrollTop:pos}, 500);
+                    $('.dropdown').removeClass('open');
+                    $('.dropdown>a').attr('aria-expanded','false');
+                    return false;
                 }
              }
+
           })
+
     });
+
 
     $('#main_menu').on('activate.bs.scrollspy', function () {
         current_section = $(".dropdown-menu li.active > a").attr('href');

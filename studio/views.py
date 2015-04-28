@@ -18,6 +18,15 @@ def view_home(request):
                                         })
 
 
+def view_inners(request, request_inner):
+    return render(request, 'base.html', {"body_header": view_studio_body_header(),
+                                         "body_tag": get_navbar_body_tag(),
+                                         "body_content": view_studio_body_content(),
+                                         "body_footer": view_studio_body_footer(),
+                                         "includes_content": view_studio_includes(),
+                                         "scripts_content": view_studio_inners(request_inner)
+                                        })
+
 def view_globe(request):
     return render(request, 'base.html', {"body_header": view_globe_body_header(),
                                          "body_tag": get_navbar_body_tag(),
@@ -72,6 +81,15 @@ def view_studio_scripts(request):
 
     return content
 
+def view_studio_inners(request_tag):
+    print('inner requested ' + request_tag)
+    content = get_navbar_scripts()
+    content += get_studio_body_scripts()
+    content += get_script_request(request_tag)
+    content += get_news_scripts()
+
+    return content
+
 
 # GLOBE PAGE
 # -----------------------------------------/
@@ -84,7 +102,7 @@ def view_globe_body_header():
              'arcade',
              'discover',
              'preview']
-    contact = '/?request=contact'
+    contact = '/mail'
     content = get_navbar_body(links, contact)
     content += get_studio_body_header()
     return content

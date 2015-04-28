@@ -28,24 +28,25 @@ function getList() {
     return list_section;
 }
 
-function gotoSection(section, withScrolling, withOpening) {
+function gotoSection(section, withScrolling) {
     var pos = $(section).offset().top;
+    var scroll_time = 0;
     if( pos != 0) {
         pos -= 49;
     }
+    console.log("pos " + pos + " for section " + section);
     if(withScrolling) {
-        $('body, html').animate({scrollTop:pos}, 1000);
-        if(section == '#contact' && withOpening)
-        {
-            setTimeout(function() {
-                if(contact_inst.currentCat != "mail"){
-                    $("#mail_btn").click();
-                }
-            },500);
-        }
-    } else {
-        $('body, html').animate({scrollTop:pos}, 0);
+      scroll_time = 1000;
     }
+
+    $('body, html').animate({scrollTop:pos}, scroll_time);
+}
+
+function gotoSubsection(section, subsection, withScrolling) {
+    gotoSection(section, withScrolling);
+    setTimeout(function() { $("#"+ subsection + "_btn").click(); },50);
+
+    //$("#"+ subsection + "_btn").click();
 }
 
 function gotoContact() {
@@ -56,7 +57,7 @@ function gotoContact() {
         if(contact_inst.currentCat != "mail"){
             $("#mail_btn").click();
         }
-    },500);
+    },1000);
 }
 
 function getSectionIndex() {
@@ -80,7 +81,7 @@ function gotoNext() {
         idx += 1;
     }
     console.log('Next at: ' + idx);
-    gotoSection(list[idx], true, false);
+    gotoSection(list[idx], true);
     return idx;
 }
 
